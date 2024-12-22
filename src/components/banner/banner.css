@@ -1,0 +1,27 @@
+.banner {
+  height: 400px; /* Full viewport height */
+  width: 100%; /* Full width */
+  /* border: 2px solid red; */
+  /* border-radius: 15px; */
+}
+
+.banner .swiper {
+  height: 100%; /* Ensure Swiper fills the banner */
+  z-index: -1;
+  border-radius: 15px;
+  border: 2px solid red;
+}
+
+.banner .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  background: #fff; /* Optional: Background color for slides */
+}
+
+.banner .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

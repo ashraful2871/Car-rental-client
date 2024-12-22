@@ -1,0 +1,127 @@
+import React from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+
+const Login = () => {
+  const { signInUser, googleLogin } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    const loginInfo = {
+      email,
+      password,
+    };
+    console.log(loginInfo);
+
+    //sign in user
+    signInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully login", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleGoogleLogin = () => {
+    //google login
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully login", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <div className="flex justify-center mt-12">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <form onSubmit={handleLogin} className="card-body">
+          {" "}
+          <div className="mt-5">
+            <h2 className="text-center text-4xl font-bold">Login Now</h2>
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="email"
+              name="email"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              className="input input-bordered"
+              required
+            />
+            <label className="label">
+              <a href="#" className="label-text-alt link link-hover">
+                Forgot password?
+              </a>
+            </label>
+          </div>
+          <div className="form-control mt-6">
+            <button className="btn btn-primary">Login</button>
+          </div>
+        </form>
+        <div className="divider -mt-1">or</div>
+        <div className="flex justify-center my-6 font-semibold">
+          <button
+            onClick={handleGoogleLogin}
+            className="flex items-center gap-2 text-lg btn border border-black btn-ghost"
+          >
+            {" "}
+            <span className="mt-1 text-2xl">
+              <FcGoogle />
+            </span>
+            Login Google
+          </button>
+        </div>
+        <div className="text-center  my-6">
+          <h2 className="text-lg">
+            Do not Have an Account?{" "}
+            <span className="text-red-500 font-semibold">
+              <Link to="/signUP"> Sign Up</Link>
+            </span>
+          </h2>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
