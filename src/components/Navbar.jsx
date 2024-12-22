@@ -12,22 +12,33 @@ const Navbar = () => {
   const menuLinks = (
     <>
       <li>
-        <NavLink to="/data">Data</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/available_car">Available Car</NavLink>
       </li>
+      {user ? (
+        ""
+      ) : (
+        <li>
+          <NavLink to="/login">Login</NavLink>
+        </li>
+      )}
     </>
   );
 
   const dropdownLinks = (
     <>
       <li>
-        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to="/add_car">Add Car</NavLink>
       </li>
       <li>
-        <a>Settings</a>
+        <NavLink to="/my_cars">My Cars</NavLink>
       </li>
+      <li>
+        <NavLink to="/my_bookings">My Bookings</NavLink>
+      </li>
+
       <li>
         <button
           className="bg-gray-200 block text-center font-bold"
@@ -42,8 +53,8 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <Link to="/" className=" text-xl">
-          daisyUI
+        <Link to="/" className=" text-3xl font-extrabold">
+          Car Rent
         </Link>
       </div>
       <div className="flex-none">

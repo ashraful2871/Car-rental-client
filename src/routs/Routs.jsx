@@ -3,9 +3,12 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../components/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
-import Profile from "../components/Profile";
+import AvailableCar from "../components/AvailableCar";
+import AddCar from "../components/AddCar";
+import MyCars from "../components/MyCars";
+import MyBookings from "../components/MyBookings";
 import Privet from "../privet/Privet";
-import AddPost from "../pages/AddPost";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,16 +27,24 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path: "/profile",
+        path: "/available_car",
+        element: <AvailableCar></AvailableCar>,
+      },
+      {
+        path: "/add_car",
         element: (
           <Privet>
-            <Profile></Profile>
+            <AddCar></AddCar>
           </Privet>
         ),
       },
       {
-        path: "/data",
-        element: <AddPost></AddPost>,
+        path: "/my_cars",
+        element: <MyCars></MyCars>,
+      },
+      {
+        path: "/my_bookings",
+        element: <MyBookings></MyBookings>,
       },
     ],
   },
