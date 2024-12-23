@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import React from "react";
 import { FaTrashRestoreAlt } from "react-icons/fa";
 import { TiEdit } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 const MyCarTableRow = ({ car, confirmDelete }) => {
   const { _id, photo, model, rentalPrice, date, availability } = car;
@@ -30,9 +31,12 @@ const MyCarTableRow = ({ car, confirmDelete }) => {
           >
             <FaTrashRestoreAlt />
           </button>
-          <button className="hover:text-blue-600 text-2xl">
-            <TiEdit />
-          </button>
+          <Link to={`/update/${_id}`}>
+            {" "}
+            <button className="hover:text-blue-600 text-2xl">
+              <TiEdit />
+            </button>
+          </Link>
         </div>
       </td>
     </tr>
