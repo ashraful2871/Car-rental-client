@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { format } from "date-fns";
+import { af } from "date-fns/locale";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -15,10 +16,20 @@ const MyBookings = () => {
     const { data } = await axiosSecure.get(`/books/${user?.email}`);
     setBookingCar(data);
   };
-  console.log(bookingCar);
-  // const date = new Date(bookingCar.date);
-  // const formateDate = format(date, "MM/dd/yyyy");
 
+  const handleStatusChange = async (id, PrevStatus, status) => {
+    console.log(id, PrevStatus, status);
+
+    try {
+      const { data } = await axiosSecure.patch(`/booking_status_update/${id}`, {
+        status,
+      });
+      console.log(data);
+      fetchAllCar();
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="overflow-x-auto p-4">
       <table className="min-w-full table-auto border-collapse border border-gray-300">
@@ -84,7 +95,13 @@ const MyBookings = () => {
                 <button className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600">
                   View
                 </button>
-                <button className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600">
+                <button
+                  onClick={() =>
+                    handleStatusChange(booking._id, booking.status, "Cancel")
+                  }
+                  disabled={booking.status === "Cancel"}
+                  className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 disabled:cursor-not-allowed"
+                >
                   Cancel
                 </button>
               </td>
