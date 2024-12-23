@@ -1,11 +1,34 @@
 import React from "react";
 import SelectImage from "./SelectImage";
 import useAuth from "../hooks/useAuth";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const AddCar = () => {
+  const queryClient = useQueryClient();
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: async (CarData) => {
+      const { data } = await axiosSecure.post(`/add_car`, CarData);
+      console.log(data);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cars"] });
+      // 2. Reset form
+      // form.reset();
 
-  const handleSubmit = (e) => {
+      // 3. Show toast and navigate
+      toast.success("data added successfully");
+      //   navigate("/my-posted-jobs");
+    },
+    onError: (err) => {
+      toast.error(err.message);
+    },
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
@@ -19,7 +42,7 @@ const AddCar = () => {
     const photo = formData.get("photo");
     const date = new Date();
 
-    const addCarData = {
+    const CarData = {
       model,
       rentalPrice,
       addPostUser: {
@@ -36,7 +59,28 @@ const AddCar = () => {
       status: "Pending",
       booking_count: 0,
     };
-    console.log(addCarData);
+    console.log(CarData);
+
+    await mutateAsync(CarData);
+    //save joData in db
+    // const { data } = await axios.post(
+    //   `${import.meta.env.VITE_API_URL}/add-jobs`,
+    //   formData
+    // );
+    try {
+      //make post request using useMutation hook
+
+      // await axios.post(`${import.meta.env.VITE_API_URL}/add-jobs`, formData);
+
+      // 2. Reset form
+      formData.reset();
+
+      // 3. Show toast and navigate
+      // toast.success("data added successfully");
+      // navigate("/my-posted-jobs");
+    } catch (error) {
+      // toast.error(error.message);
+    }
   };
   return (
     <div>
@@ -73,13 +117,26 @@ const AddCar = () => {
             <label className="label">
               <span className="label-text">Availability</span>
             </label>
-            <input
+            {/* <input
               type="text"
               name="availability"
               placeholder="Availability"
               className="input input-bordered"
               required
-            />
+            /> */}
+            <select
+              name="availability"
+              id="availability"
+              defaultValue="Select Availability"
+              className="border p-2 rounded-md"
+              required
+            >
+              <option disabled value="Select Availability">
+                Select Availability
+              </option>
+              <option value="Available">Available</option>
+              <option value="Unavailable">Unavailable</option>
+            </select>
           </div>
           <div className="form-control">
             <label className="label">
@@ -144,7 +201,9 @@ const AddCar = () => {
             ></textarea>
           </div>
           <div className="form-control mt-6 col-span-2">
-            <button className="btn btn-primary">Add Car</button>
+            <button className="btn btn-primary">
+              {isPending ? "Adding..." : "Add Car"}
+            </button>
           </div>
         </form>
       </div>

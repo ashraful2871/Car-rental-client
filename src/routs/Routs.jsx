@@ -40,7 +40,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my_cars",
-        element: <MyCars></MyCars>,
+        element: (
+          <Privet>
+            <MyCars></MyCars>
+          </Privet>
+        ),
       },
       {
         path: "/my_bookings",
