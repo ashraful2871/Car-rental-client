@@ -4,12 +4,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import "../banner/banner.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-export default function App() {
+export default function Banner() {
   return (
-    <div className="banner">
+    <div className=" h-[400px] md:h-[550px] rounded-xl">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -22,12 +21,45 @@ export default function App() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="h-full"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        {/* Slide 1 */}
+        <SwiperSlide>
+          <div className="relative w-full h-full rounded-2xl">
+            <img
+              src="https://i.ibb.co.com/yND6jr7/bugati.webp"
+              alt="Car 1"
+              className="w-full h-full object-cover rounded-2xl"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-4 rounded-2xl">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Drive Your Dreams Today!
+              </h1>
+              <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300">
+                View Available Cars
+              </button>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        {/* Slide 2 */}
+        <SwiperSlide>
+          <div className="relative w-full h-full rounded-2xl">
+            <img
+              src="https://i.ibb.co.com/N21fX1f/car.webp"
+              alt="Car 1"
+              className="w-full h-full object-cover rounded-2xl"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white px-4 rounded-2xl">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
+                Drive Your Dreams Today!
+              </h1>
+              <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300">
+                View Available Cars
+              </button>
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   );
