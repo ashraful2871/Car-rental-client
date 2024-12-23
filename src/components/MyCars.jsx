@@ -2,22 +2,24 @@ import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import MyCarTableRow from "./MyCarTableRow";
 import toast from "react-hot-toast";
+import useAuth from "../hooks/useAuth";
 
 const MyCars = () => {
   const axiosSecure = useAxiosSecure();
   const [cars, setCars] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     fetchAllCar();
-  }, []);
+  }, [user?.email]);
   const fetchAllCar = async () => {
-    const { data } = await axiosSecure.get(`/add_car`);
+    const { data } = await axiosSecure.get(`/cars/${user?.email}`);
     setCars(data);
   };
 
   const handleDelete = async (id) => {
     try {
-      const { data } = await axiosSecure.delete(`/add_car/${id}`);
+      const { data } = await axiosSecure.delete(`/cars/${id}`);
       console.log(data);
       toast.success("Data Deleted Successfully");
       fetchAllCar();

@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const AvailableCarCard = ({ car }) => {
+  const { id } = useParams();
   const { _id, photo, model, rentalPrice, date, availability } = car;
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
@@ -13,7 +14,7 @@ const AvailableCarCard = ({ car }) => {
         <p>Price Per Day: ${rentalPrice}</p>
         <p>Availability: {availability}</p>
         <div className="card-actions justify-end">
-          <Link to={`/car_details/1`}>
+          <Link to={`/car_details/${_id}`}>
             <button className="btn btn-primary">Book Now</button>
           </Link>
         </div>

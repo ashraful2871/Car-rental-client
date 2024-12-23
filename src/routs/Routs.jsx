@@ -58,7 +58,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/car_details/1",
+        path: "/car_details/:id",
         element: (
           <Privet>
             <CarDetails></CarDetails>

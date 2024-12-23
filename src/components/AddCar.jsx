@@ -45,7 +45,7 @@ const AddCar = () => {
     const CarData = {
       model,
       rentalPrice,
-      addPostUser: {
+      userDetails: {
         email: user?.email,
         name: user?.displayName,
       },
