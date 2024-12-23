@@ -10,6 +10,8 @@ import MyBookings from "../components/MyBookings";
 import Privet from "../privet/Privet";
 import UpdateMyCars from "../components/UpdateMyCars";
 
+import CarDetails from "../components/CarDetails";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
         element: (
           <Privet>
             <UpdateMyCars></UpdateMyCars>
+          </Privet>
+        ),
+      },
+      {
+        path: "/car_details/1",
+        element: (
+          <Privet>
+            <CarDetails></CarDetails>
           </Privet>
         ),
       },

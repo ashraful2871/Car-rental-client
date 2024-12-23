@@ -11,7 +11,7 @@ const MyCars = () => {
     fetchAllCar();
   }, []);
   const fetchAllCar = async () => {
-    const { data } = await axiosSecure.get("/add_car");
+    const { data } = await axiosSecure.get(`/add_car`);
     setCars(data);
   };
 
