@@ -11,11 +11,13 @@ import Privet from "../privet/Privet";
 import UpdateMyCars from "../components/UpdateMyCars";
 
 import CarDetails from "../components/CarDetails";
+import Error from "../components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
