@@ -3,8 +3,7 @@ import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
-import { FaEdit, FaTrashRestoreAlt } from "react-icons/fa";
-import { RiTimelineView } from "react-icons/ri";
+import { FaTrashRestoreAlt } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
 
 const MyBookings = () => {
@@ -99,18 +98,31 @@ const MyBookings = () => {
                 {booking.rentalPrice}
               </td>
               <td className="border border-gray-300 px-4 py-2">
-                <span
-                  className={
-                    `px-2 py-1 rounded text-white text-sm ` +
-                    (booking.status === "Confirmed"
-                      ? "bg-green-500"
-                      : booking.status === "Pending"
-                      ? "bg-yellow-500"
-                      : "bg-red-500")
-                  }
-                >
-                  {booking.status}
-                </span>
+                <div className="flex justify-center">
+                  <div
+                    className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 ${
+                      booking.status === "Pending" &&
+                      " bg-yellow-100/60 text-yellow-500"
+                    }  ${
+                      booking.status === "Confirmed" &&
+                      " bg-green-100/60 text-green-500"
+                    } ${
+                      booking.status === "Canceled" &&
+                      " bg-red-100/60 text-red-500"
+                    }`}
+                  >
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full font-semibold ${
+                        booking.status === "Pending" && "bg-yellow-500"
+                      }  ${booking.status === "Canceled" && "bg-green-500"} ${
+                        booking.status === "Canceled" && "bg-red-500"
+                      } `}
+                    ></span>
+                    <h2 className="text-sm  font-bold text-center">
+                      {booking.status}
+                    </h2>
+                  </div>
+                </div>
               </td>
               <td className="px-4 py-5 flex justify-center gap-3">
                 <button className=" bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 flex gap-1 items-center">

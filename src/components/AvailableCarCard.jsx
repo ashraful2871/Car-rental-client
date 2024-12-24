@@ -3,8 +3,16 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 const AvailableCarCard = ({ car }) => {
-  const { id } = useParams();
-  const { _id, photo, model, rentalPrice, date, availability, location } = car;
+  const {
+    _id,
+    photo,
+    model,
+    rentalPrice,
+    date,
+    availability,
+    location,
+    booking_count,
+  } = car;
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
@@ -16,6 +24,7 @@ const AvailableCarCard = ({ car }) => {
         <p>Price Per Day: ${rentalPrice}</p>
         <p>Availability: {availability}</p>
         <p>Location: {location}</p>
+        <p>Total Booking: {booking_count}</p>
         <div className="card-actions justify-end">
           <Link to={`/car_details/${_id}`}>
             <button className="btn btn-primary">Book Now</button>

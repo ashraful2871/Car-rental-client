@@ -75,7 +75,7 @@ const CarDetails = () => {
   };
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-start p-6 rounded-lg shadow-md">
+      <div className="flex flex-col md:flex-row text-base-content items-start p-6 rounded-lg shadow-md">
         <div className="w-full md:w-1/2">
           {/* image should be dynamic  ❌❌❌❌❌✅✅✅✅✅*/}
           <img
@@ -85,13 +85,15 @@ const CarDetails = () => {
           />
         </div>
 
-        <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-6 space-y-5">
+        <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-6 space-y-5 ">
           <h2 className="text-2xl font-bold text-red-500">
             ${rentalPrice}{" "}
-            <span className="text-gray-500 text-base font-normal">/ Day</span>
+            <span className=" text-base font-normal text-base-content">
+              / Day
+            </span>
           </h2>
-          <p className="mt-2 text-gray-600">{description}</p>
-          <ul className="mt-4 space-y-2 text-gray-700">
+          <p className="mt-2 ">{description}</p>
+          <ul className="mt-4 space-y-2">
             <li>
               <strong>Model:</strong> {model}
             </li>
@@ -116,13 +118,13 @@ const CarDetails = () => {
 
       {/* modal */}
       {openModal && (
-        <div className="modal modal-open">
-          <div className="modal-box w-11/12 max-w-5xl">
+        <div className="modal modal-open ">
+          <div className="modal-box w-11/12 max-w-5xl bg-base-100 text-base-content">
             <h3 className="font-bold text-lg text-center">
               Booking Confirmation
             </h3>
             <p className="py-4">Are you sure you want to book this car?</p>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2">
               <li>
                 <strong>Model:</strong> {model}
               </li>

@@ -8,6 +8,7 @@
   height: 100%; /* Ensure Swiper fills the banner */
   border-radius: 15px;
   border: 2px solid red;
+  z-index: -1;
 }
 
 .banner .swiper-slide {
