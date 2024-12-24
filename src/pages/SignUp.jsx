@@ -19,6 +19,43 @@ const SignUp = () => {
     const signUPInfo = { name, email, photo, password };
     console.log(signUPInfo);
 
+    const hasUppercase = /[A-Z]/;
+    const hasLowercase = /[a-z]/;
+    const hasMinLength = /.{6,}/;
+
+    if (!hasMinLength.test(password)) {
+      toast.error("password must be 6 character or longer", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      return;
+    }
+
+    if (!hasUppercase.test(password)) {
+      toast.error("must be one uppercase letter", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      return;
+    }
+
+    if (!hasLowercase.test(password)) {
+      toast.error("must be one lowercase letter", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      return;
+    }
+
     //sign up user
     signUpUser(email, password)
       .then((result) => {
@@ -126,7 +163,7 @@ const SignUp = () => {
               <span className="mt-1 text-2xl">
                 <FcGoogle />
               </span>
-              Sign UP Google
+              Sign Up With Google
             </button>
           </div>
         </div>

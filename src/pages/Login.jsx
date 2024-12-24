@@ -35,7 +35,13 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error((error.message = "Invalid Email & Password"), {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
       });
   };
   const handleGoogleLogin = () => {
@@ -54,6 +60,13 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Invalid Email & Password", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
       });
   };
 
@@ -108,7 +121,7 @@ const Login = () => {
             <span className="mt-1 text-2xl">
               <FcGoogle />
             </span>
-            Login Google
+            Login With Google
           </button>
         </div>
         <div className="text-center  my-6">
