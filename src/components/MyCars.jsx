@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
-import MyCarTableRow from "./MyCarTableRow";
+
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
+import MyCarTableRow from "./MyCarTableRow";
 
 const MyCars = () => {
   const axiosSecure = useAxiosSecure();
@@ -76,6 +77,7 @@ const MyCars = () => {
               confirmDelete={confirmDelete}
               car={car}
               key={index}
+              fetchAllCar={fetchAllCar}
             ></MyCarTableRow>
           ))}
         </tbody>

@@ -23,7 +23,6 @@ export default function Banner() {
         modules={[Autoplay, Pagination, Navigation]}
         className="h-full"
       >
-        {/* Slide 1 */}
         <SwiperSlide>
           <div className="relative w-full h-full rounded-2xl">
             <img
@@ -41,8 +40,6 @@ export default function Banner() {
             </div>
           </div>
         </SwiperSlide>
-
-        {/* Slide 2 */}
         <SwiperSlide>
           <div className="relative w-full h-full rounded-2xl">
             <img

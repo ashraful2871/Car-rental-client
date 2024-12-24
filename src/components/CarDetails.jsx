@@ -43,7 +43,7 @@ const CarDetails = () => {
     setOpenModal(true);
   };
 
-  const handleCloseModal = async () => {
+  const handleConfirmModal = async () => {
     const bookingDate = new Date();
     const bookData = {
       bookId: _id,
@@ -68,6 +68,9 @@ const CarDetails = () => {
       console.log(error);
       toast.error(error.response.data);
     }
+    setOpenModal(false);
+  };
+  const handleCancelModal = () => {
     setOpenModal(false);
   };
   return (
@@ -137,13 +140,13 @@ const CarDetails = () => {
               </li>
             </ul>
             <div className="modal-action">
-              <button className="btn btn-secondary" onClick={handleCloseModal}>
+              <button className="btn btn-secondary" onClick={handleCancelModal}>
                 Cancel
               </button>
               <button
                 className="btn btn-primary"
                 onClick={() => {
-                  handleCloseModal();
+                  handleConfirmModal();
                 }}
               >
                 Confirm
