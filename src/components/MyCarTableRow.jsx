@@ -70,17 +70,29 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
         updateCarData
       );
       setUpdatedCar(data);
-      toast.success("data updated successfully");
+      toast.success("data updated successfully", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
       fetchAllCar();
       setOpenModal(false);
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message, {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     }
   };
 
   return (
     <>
-      <tr className="hover:bg-gray-50">
+      <tr className="hover">
         <td className="border border-gray-300 px-4 py-2">
           <img
             src={photo}

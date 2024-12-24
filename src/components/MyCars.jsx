@@ -4,17 +4,19 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 import MyCarTableRow from "./MyCarTableRow";
+import NoDataFound from "./NoDataFound";
 
 const MyCars = () => {
   const axiosSecure = useAxiosSecure();
   const [cars, setCars] = useState([]);
   const { user } = useAuth();
-
+  const [sort, setSort] = useState("");
+  console.log(sort);
   useEffect(() => {
     fetchAllCar();
-  }, [user?.email]);
+  }, [user?.email, sort]);
   const fetchAllCar = async () => {
-    const { data } = await axiosSecure.get(`/cars/${user?.email}`);
+    const { data } = await axiosSecure.get(`/cars/${user?.email}?sort=${sort}`);
     setCars(data);
   };
 
@@ -29,6 +31,7 @@ const MyCars = () => {
     }
   };
 
+  //change after complete all requirements
   const confirmDelete = (id) => {
     toast((t) => (
       <div className="flex gap-3 items-center">
@@ -58,8 +61,23 @@ const MyCars = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="table-auto border-collapse border border-gray-200 w-full text-left">
-        <thead className="bg-gray-100">
+      <div className="flex flex-col md:flex-row justify-end  mr-28 my-8 items-center gap-5 ">
+        <div>
+          <select
+            name="category"
+            id="category"
+            value={sort}
+            className="border-2 font-bold p-4 rounded-md"
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="">Sort By Date/Price</option>
+            <option value="dsc">Date (Newest First)</option>
+            <option value="asc">price (Lowest First)</option>
+          </select>
+        </div>
+      </div>
+      <table className="table table-auto border-collapse border border-gray-200 w-full text-left">
+        <thead className="  bg-neutral text-white">
           <tr>
             <th className="border border-gray-300 px-4 py-2">Car Image</th>
             <th className="border border-gray-300 px-4 py-2">Car Model</th>
@@ -72,14 +90,18 @@ const MyCars = () => {
           </tr>
         </thead>
         <tbody>
-          {cars?.map((car, index) => (
-            <MyCarTableRow
-              confirmDelete={confirmDelete}
-              car={car}
-              key={index}
-              fetchAllCar={fetchAllCar}
-            ></MyCarTableRow>
-          ))}
+          {cars.length > 0 ? (
+            cars?.map((car, index) => (
+              <MyCarTableRow
+                confirmDelete={confirmDelete}
+                car={car}
+                key={index}
+                fetchAllCar={fetchAllCar}
+              ></MyCarTableRow>
+            ))
+          ) : (
+            <NoDataFound></NoDataFound>
+          )}
         </tbody>
       </table>
     </div>

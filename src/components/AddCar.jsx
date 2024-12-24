@@ -20,11 +20,23 @@ const AddCar = () => {
       // form.reset();
 
       // 3. Show toast and navigate
-      toast.success("data added successfully");
+      toast.success("data added successfully", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
       //   navigate("/my-posted-jobs");
     },
     onError: (err) => {
-      toast.error(err.message);
+      toast.error(err.message, {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     },
   });
 

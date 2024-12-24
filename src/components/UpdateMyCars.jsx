@@ -62,11 +62,23 @@ const UpdateMyCars = () => {
       );
       console.log(data);
       //   form.reset();
-      toast.success("data updated successfully");
+      toast.success("data updated successfully", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
       fetchCar();
       //   navigate("/my-posted-jobs");
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message, {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     }
   };
   if (loading) {

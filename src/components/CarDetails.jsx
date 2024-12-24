@@ -37,7 +37,13 @@ const CarDetails = () => {
   const handleBookNow = async () => {
     // 1.check book permission validation
     if (user?.email === userDetails?.email) {
-      return toast.error("Won Account Action Not Permitted");
+      return toast.error("Won Account Action Not Permitted", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     }
 
     setOpenModal(true);
@@ -61,7 +67,13 @@ const CarDetails = () => {
         `${import.meta.env.VITE_API_URL}/add_book`,
         bookData
       );
-      toast.success("Car Book successful");
+      toast.success("Car Book successful", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
       // navigate("/my-bids");
       console.log(data);
     } catch (error) {
