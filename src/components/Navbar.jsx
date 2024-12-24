@@ -21,7 +21,16 @@ const Navbar = () => {
         ""
       ) : (
         <li>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive
+                ? "bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300"
+                : ""
+            }
+          >
+            Login
+          </NavLink>
         </li>
       )}
     </>

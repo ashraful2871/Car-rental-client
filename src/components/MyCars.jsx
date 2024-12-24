@@ -61,7 +61,7 @@ const MyCars = () => {
 
   return (
     <div className="overflow-x-auto">
-      <div className="flex flex-col md:flex-row justify-end  mr-28 my-8 items-center gap-5 ">
+      <div className="flex flex-col md:flex-row justify-end  mr-28 my-2 items-center gap-5 ">
         <div>
           <select
             name="category"
@@ -77,7 +77,7 @@ const MyCars = () => {
         </div>
       </div>
       <table className="table table-auto border-collapse border border-gray-200 w-full text-left">
-        <thead className="  bg-neutral text-white">
+        <thead className="bg-primary text-white text-base text-center">
           <tr>
             <th className="border border-gray-300 px-4 py-2">Car Image</th>
             <th className="border border-gray-300 px-4 py-2">Car Model</th>

@@ -27,7 +27,9 @@ const AvailableCarCard = ({ car }) => {
         <p>Total Booking: {booking_count}</p>
         <div className="card-actions justify-end">
           <Link to={`/car_details/${_id}`}>
-            <button className="btn btn-primary">Book Now</button>
+            <button className="btn btn-primary text-white font-bold text-base">
+              Book Now
+            </button>
           </Link>
         </div>
       </div>

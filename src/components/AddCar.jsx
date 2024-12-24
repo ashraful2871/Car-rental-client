@@ -213,7 +213,7 @@ const AddCar = () => {
             ></textarea>
           </div>
           <div className="form-control mt-6 col-span-2">
-            <button className="btn btn-primary">
+            <button className="btn btn-primary text-white font-bold text-base">
               {isPending ? "Adding..." : "Add Car"}
             </button>
           </div>

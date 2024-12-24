@@ -92,7 +92,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
 
   return (
     <>
-      <tr className="hover">
+      <tr className="hover text-lg font-semibold text-center">
         <td className="border border-gray-300 px-4 py-2">
           <img
             src={photo}

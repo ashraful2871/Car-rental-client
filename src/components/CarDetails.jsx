@@ -122,7 +122,10 @@ const CarDetails = () => {
               <strong>Reviews:</strong>
             </li>
           </ul>
-          <button className="btn btn-primary mt-4" onClick={handleBookNow}>
+          <button
+            className="btn btn-primary text-white font-bold text-base mt-4"
+            onClick={handleBookNow}
+          >
             Book Now
           </button>
         </div>
@@ -154,11 +157,14 @@ const CarDetails = () => {
               </li>
             </ul>
             <div className="modal-action">
-              <button className="btn btn-secondary" onClick={handleCancelModal}>
+              <button
+                className="btn btn-error text-white font-bold text-base"
+                onClick={handleCancelModal}
+              >
                 Cancel
               </button>
               <button
-                className="btn btn-primary"
+                className="btn btn-primary text-white font-bold text-base"
                 onClick={() => {
                   handleConfirmModal();
                 }}

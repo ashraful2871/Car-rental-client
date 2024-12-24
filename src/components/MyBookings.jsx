@@ -50,83 +50,65 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="overflow-x-auto p-4 bg-gray-50 dark:bg-gray-900 rounded-lg shadow-lg">
-      <table className="min-w-full border-collapse border border-gray-300 dark:border-gray-700">
-        <thead>
-          <tr className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200">
-            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700 ">
-              Car Image
-            </th>
-            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
-              Car Model
-            </th>
-            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
-              Booking Date
-            </th>
-            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
-              Total Price
-            </th>
-            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
-              Booking Status
-            </th>
-            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {bookingCar.map((booking, idx) => (
-            <tr
-              key={idx}
-              className="transition hover:bg-gray-200 dark:hover:bg-gray-800 text-center"
-            >
-              <td className="px-4 py-3 text-center border border-gray-300 dark:border-gray-700">
-                <img
-                  src={booking.photo}
-                  alt={booking.model}
-                  className="h-12 w-12 object-cover rounded-md shadow-md"
-                />
-              </td>
-              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
-                <p className="text-gray-900 dark:text-gray-200 font-medium">
-                  {booking.model}
-                </p>
-              </td>
-              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
-                <p className="text-sm text-gray-700 dark:text-gray-400">
-                  {format(new Date(booking.bookingDate), "Pp")}
-                </p>
-              </td>
-              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
-                <p className="text-green-600 dark:text-green-400 font-semibold">
-                  ${booking.rentalPrice}
-                </p>
-              </td>
-              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
-                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-sm font-bold shadow-md transition-colors">
-                  <span
-                    className={`h-2 w-2 rounded-full ${
-                      booking.status === "Pending"
-                        ? "bg-yellow-500"
-                        : booking.status === "Confirmed"
-                        ? "bg-green-500"
-                        : "bg-red-500"
-                    }`}
-                  ></span>
-                  <span
-                    className={`${
-                      booking.status === "Pending"
-                        ? "text-yellow-600 dark:text-yellow-400"
-                        : booking.status === "Confirmed"
-                        ? "text-green-600 dark:text-green-400"
-                        : "text-red-600 dark:text-red-400"
-                    }`}
-                  >
-                    {booking.status}
-                  </span>
-                </div>
-              </td>
-              <td className="px-4 py-3 flex justify-center gap-3 border border-gray-300 dark:border-gray-700">
+    <table className="table table-auto border-collapse border border-gray-200 w-full text-left">
+      <thead className="bg-primary text-white font-bold text-base text-center">
+        <tr>
+          <th className="border border-gray-300 px-4 py-2 ">Car Image</th>
+          <th className="border border-gray-300 px-4 py-2">Car Model</th>
+          <th className="border border-gray-300 px-4 py-2">Booking Date</th>
+          <th className="border border-gray-300 px-4 py-2">Total Price</th>
+          <th className="border border-gray-300 px-4 py-2">Booking Status</th>
+          <th className="border border-gray-300 px-4 py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {bookingCar.map((booking, idx) => (
+          <tr
+            key={idx}
+            className="transition hover text-lg font-semibold text-center"
+          >
+            <td className="border border-gray-300 px-4 py-2">
+              <img
+                src={booking.photo}
+                alt={booking.model}
+                className="h-12 w-12 object-cover rounded-md shadow-md"
+              />
+            </td>
+            <td className="border border-gray-300 px-4 py-2">
+              {booking.model}
+            </td>
+            <td className="border border-gray-300 px-4 py-2">
+              {format(new Date(booking.bookingDate), "Pp")}
+            </td>
+            <td className="border border-gray-300 px-4 py-2">
+              ${booking.rentalPrice}
+            </td>
+            <td className="border border-gray-300 px-4 py-2">
+              <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-sm font-bold shadow-md transition-colors">
+                <span
+                  className={`h-2 w-2 rounded-full ${
+                    booking.status === "Pending"
+                      ? "bg-yellow-500"
+                      : booking.status === "Confirmed"
+                      ? "bg-green-500"
+                      : "bg-red-500"
+                  }`}
+                ></span>
+                <span
+                  className={`${
+                    booking.status === "Pending"
+                      ? "text-yellow-600 dark:text-yellow-400"
+                      : booking.status === "Confirmed"
+                      ? "text-green-600 dark:text-green-400"
+                      : "text-red-600 dark:text-red-400"
+                  }`}
+                >
+                  {booking.status}
+                </span>
+              </div>
+            </td>
+            <td className="border border-gray-300 px-4 py-2 ">
+              <div className="flex justify-center gap-4">
                 <button className="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 transition-all flex gap-1 items-center shadow-md">
                   <MdOutlineDateRange /> Modify
                 </button>
@@ -139,12 +121,12 @@ const MyBookings = () => {
                 >
                   <FaTrashRestoreAlt /> Cancel
                 </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
