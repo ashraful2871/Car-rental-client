@@ -53,7 +53,12 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <Link to="/" className=" text-3xl font-extrabold">
+        <Link to="/" className=" text-3xl font-extrabold flex items-center">
+          <img
+            className="h-16 w-16"
+            src="https://i.ibb.co.com/D4YprTd/logo-removebg.png"
+            alt=""
+          />
           Car Rent
         </Link>
       </div>

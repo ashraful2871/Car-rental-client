@@ -67,7 +67,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my_bookings",
-        element: <MyBookings></MyBookings>,
+        element: (
+          <Privet>
+            <MyBookings></MyBookings>
+          </Privet>
+        ),
       },
     ],
   },

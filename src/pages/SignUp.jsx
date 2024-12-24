@@ -22,6 +22,17 @@ const SignUp = () => {
     const hasUppercase = /[A-Z]/;
     const hasLowercase = /[a-z]/;
     const hasMinLength = /.{6,}/;
+    const hasMinLengthName = /.{5,}/;
+    if (!hasMinLengthName.test(name)) {
+      toast.error("Name at least 5 character or longer", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      return;
+    }
 
     if (!hasMinLength.test(password)) {
       toast.error("password must be 6 character or longer", {
@@ -62,14 +73,14 @@ const SignUp = () => {
         console.log(result.user);
         updateUserProfile(name, photo);
         setUser({ ...result.user, photoURL: photo, displayName: name });
-        toast.success("Successfully Signed Up", {
+        toast.success("Signed Up Successfully Login Now", {
           style: {
             borderRadius: "10px",
             background: "#333",
             color: "#fff",
           },
         });
-        navigate("/");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error);

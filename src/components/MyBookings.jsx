@@ -20,8 +20,6 @@ const MyBookings = () => {
   };
 
   const handleStatusChange = async (id, PrevStatus, status) => {
-    console.log(id, PrevStatus, status);
-
     try {
       Swal.fire({
         title: "Are you sure you want to cancel this booking?",
@@ -36,11 +34,8 @@ const MyBookings = () => {
         if (result.isConfirmed) {
           const { data } = await axiosSecure.patch(
             `/booking_status_update/${id}`,
-            {
-              status,
-            }
+            { status }
           );
-          console.log(data);
           fetchAllCar();
           Swal.fire({
             title: "Canceled!",
@@ -53,95 +48,96 @@ const MyBookings = () => {
       console.log(err);
     }
   };
+
   return (
-    <div className="overflow-x-auto p-4">
-      <table className="min-w-full table-auto border-collapse border border-gray-300">
+    <div className="overflow-x-auto p-4 bg-gray-50 dark:bg-gray-900 rounded-lg shadow-lg">
+      <table className="min-w-full border-collapse border border-gray-300 dark:border-gray-700">
         <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-300 px-4 py-2 text-left">
+          <tr className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-200">
+            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700 ">
               Car Image
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
+            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
               Car Model
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
+            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
               Booking Date
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
+            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
               Total Price
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
+            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
               Booking Status
             </th>
-            <th className="border border-gray-300 px-4 py-2 text-left">
+            <th className="px-4 py-3  font-bold uppercase text-sm border border-gray-300 dark:border-gray-700">
               Actions
             </th>
           </tr>
         </thead>
         <tbody>
           {bookingCar.map((booking, idx) => (
-            <tr key={idx} className="hover">
-              <td className="border border-gray-300 px-4 py-2">
+            <tr
+              key={idx}
+              className="transition hover:bg-gray-200 dark:hover:bg-gray-800 text-center"
+            >
+              <td className="px-4 py-3 text-center border border-gray-300 dark:border-gray-700">
                 <img
                   src={booking.photo}
                   alt={booking.model}
-                  className="h-12 w-12 object-cover"
+                  className="h-12 w-12 object-cover rounded-md shadow-md"
                 />
               </td>
-              <td className="border border-gray-300 px-4 py-2">
-                {booking.model}
+              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
+                <p className="text-gray-900 dark:text-gray-200 font-medium">
+                  {booking.model}
+                </p>
               </td>
-              <td className="border border-gray-300 px-4 py-2">
-                {format(new Date(booking.bookingDate), "Pp")}
+              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
+                <p className="text-sm text-gray-700 dark:text-gray-400">
+                  {format(new Date(booking.bookingDate), "Pp")}
+                </p>
               </td>
-              <td className="border border-gray-300 px-4 py-2">
-                {booking.rentalPrice}
+              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
+                <p className="text-green-600 dark:text-green-400 font-semibold">
+                  ${booking.rentalPrice}
+                </p>
               </td>
-              <td className="border border-gray-300 px-4 py-2">
-                <div className="flex justify-center">
-                  <div
-                    className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 ${
-                      booking.status === "Pending" &&
-                      " bg-yellow-100/60 text-yellow-500"
-                    }  ${
-                      booking.status === "Confirmed" &&
-                      " bg-green-100/60 text-green-500"
-                    } ${
-                      booking.status === "Canceled" &&
-                      " bg-red-100/60 text-red-500"
+              <td className="px-4 py-3 border border-gray-300 dark:border-gray-700">
+                <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-sm font-bold shadow-md transition-colors">
+                  <span
+                    className={`h-2 w-2 rounded-full ${
+                      booking.status === "Pending"
+                        ? "bg-yellow-500"
+                        : booking.status === "Confirmed"
+                        ? "bg-green-500"
+                        : "bg-red-500"
+                    }`}
+                  ></span>
+                  <span
+                    className={`${
+                      booking.status === "Pending"
+                        ? "text-yellow-600 dark:text-yellow-400"
+                        : booking.status === "Confirmed"
+                        ? "text-green-600 dark:text-green-400"
+                        : "text-red-600 dark:text-red-400"
                     }`}
                   >
-                    <span
-                      className={`h-1.5 w-1.5 rounded-full font-semibold ${
-                        booking.status === "Pending" && "bg-yellow-500"
-                      }  ${booking.status === "Canceled" && "bg-green-500"} ${
-                        booking.status === "Canceled" && "bg-red-500"
-                      } `}
-                    ></span>
-                    <h2 className="text-sm  font-bold text-center">
-                      {booking.status}
-                    </h2>
-                  </div>
+                    {booking.status}
+                  </span>
                 </div>
               </td>
-              <td className="px-4 py-5 flex justify-center gap-3">
-                <button className=" bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 flex gap-1 items-center">
+              <td className="px-4 py-3 flex justify-center gap-3 border border-gray-300 dark:border-gray-700">
+                <button className="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 transition-all flex gap-1 items-center shadow-md">
                   <MdOutlineDateRange /> Modify
                 </button>
-                {/* <button className="bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 flex gap-1 items-center">
-                  <RiTimelineView /> View
-                </button> */}
                 <button
                   onClick={() =>
                     handleStatusChange(booking._id, booking.status, "Canceled")
                   }
                   disabled={booking.status === "Canceled"}
-                  className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 flex gap-1 items-center disabled:cursor-not-allowed"
+                  className="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 transition-all flex gap-1 items-center shadow-md disabled:bg-gray-500 disabled:cursor-not-allowed"
                 >
-                  <span>
-                    <FaTrashRestoreAlt />
-                  </span>{" "}
-                  Cancel
+                  <FaTrashRestoreAlt /> Cancel
                 </button>
               </td>
             </tr>
