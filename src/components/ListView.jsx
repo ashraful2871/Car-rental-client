@@ -26,7 +26,7 @@ const ListView = ({ car }) => {
         <p>Total Booking: {booking_count}</p>
         <div className="card-actions justify-end">
           <Link to={`/car_details/${_id}`}>
-            <button className="btn btn-primary text-white font-bold text-base">
+            <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base">
               Book Now
             </button>
           </Link>
