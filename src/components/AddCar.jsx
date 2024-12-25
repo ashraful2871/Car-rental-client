@@ -104,7 +104,9 @@ const AddCar = () => {
         >
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Car Model</span>
+              <span className="label-text text-lg font-semibold">
+                Car Model
+              </span>
             </label>
             <input
               type="text"
@@ -116,7 +118,9 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Daily Rental Price</span>
+              <span className="label-text text-lg font-semibold">
+                Daily Rental Price
+              </span>
             </label>
             <input
               type="number"
@@ -128,7 +132,9 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Availability</span>
+              <span className="label-text text-lg font-semibold">
+                Availability
+              </span>
             </label>
             <select
               name="availability"
@@ -146,7 +152,9 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Vehicle Registration Number</span>
+              <span className="label-text text-lg font-semibold">
+                Vehicle Registration Number
+              </span>
             </label>
             <input
               type="text"
@@ -158,7 +166,7 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Features</span>
+              <span className="label-text text-lg font-semibold">Features</span>
             </label>
             <input
               type="text"
@@ -171,7 +179,7 @@ const AddCar = () => {
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Location</span>
+              <span className="label-text text-lg font-semibold">Location</span>
             </label>
             <select
               name="location"
@@ -190,7 +198,7 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Image</span>
+              <span className="label-text text-lg font-semibold">Image</span>
             </label>
             <input
               type="url"
@@ -202,7 +210,9 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Description</span>
+              <span className="label-text text-lg font-semibold">
+                Description
+              </span>
             </label>
             <textarea
               name="description"
