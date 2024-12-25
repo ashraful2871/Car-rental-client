@@ -10,8 +10,6 @@ const AvailableCar = () => {
   const [sort, setSort] = useState("");
   const [view, setView] = useState("grid");
 
-  console.log(search, sort);
-
   useEffect(() => {
     const fetchAllCar = async () => {
       const { data } = await axios.get(
@@ -22,6 +20,11 @@ const AvailableCar = () => {
     fetchAllCar();
   }, [search, sort]);
 
+  const handleReset = () => {
+    setSort("");
+    setSearch("");
+  };
+
   return (
     <div className="space-y-9">
       <div className="flex  justify-between">
@@ -29,7 +32,7 @@ const AvailableCar = () => {
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="flex p-1 overflow-hidden border-2 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
               <input
-                className="px-6 py-2 text-gray-700 placeholder-gray-500 outline-none focus:placeholder-transparent"
+                className="px-6 py-2  placeholder-gray-500 outline-none focus:placeholder-transparent bg-base-100 text-base-content"
                 type="text"
                 name="search"
                 placeholder="Search Car Model, Location"
@@ -50,7 +53,10 @@ const AvailableCar = () => {
               <option value="date-asc">Date ( Oldest First)</option>
             </select>
           </div>
-          <button className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base">
+          <button
+            onClick={handleReset}
+            className="btn btn-primary text-white font-bold text-base"
+          >
             Reset
           </button>
         </div>
