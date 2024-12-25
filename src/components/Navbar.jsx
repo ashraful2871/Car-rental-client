@@ -25,7 +25,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="hidden md:block">
         <NavLink to="/available_car">Available Car</NavLink>
       </li>
       {user ? (
@@ -73,7 +73,10 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1 ">
-        <Link to="/" className=" md:text-3xl font-extrabold flex items-center">
+        <Link
+          to="/"
+          className="text-xl md:text-3xl font-extrabold flex items-center"
+        >
           <img
             className="h-16 w-16"
             src="https://i.ibb.co.com/D4YprTd/logo-removebg.png"
