@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AvailableCarCard = ({ car }) => {
   const {
@@ -16,7 +16,7 @@ const AvailableCarCard = ({ car }) => {
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
-        <img src="https://i.ibb.co.com/WB2wdgg/bmw.jpg" alt="Shoes" />
+        <img className="w-full h-64 object-cover" src={photo} alt="car" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{model}</h2>

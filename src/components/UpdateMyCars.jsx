@@ -34,7 +34,7 @@ const UpdateMyCars = () => {
     const features = formData.get("features");
     const location = formData.get("location");
     const description = formData.get("description");
-    const photo = formData.get("photo");
+    const photo = formData.get("image");
     const date = new Date();
 
     const updateCarData = {
@@ -48,7 +48,7 @@ const UpdateMyCars = () => {
       registration,
       features,
       description,
-      photo: photo?.path || car.photo,
+      photo,
       location,
       date,
       status: "Pending",
@@ -178,9 +178,15 @@ const UpdateMyCars = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Select Image</span>
+              <span className="label-text">Image</span>
             </label>
-            <SelectImage></SelectImage>
+            <input
+              type="url"
+              name="image"
+              placeholder="Image Url"
+              className="input input-bordered"
+              required
+            />
           </div>
           <div className="form-control">
             <label className="label">

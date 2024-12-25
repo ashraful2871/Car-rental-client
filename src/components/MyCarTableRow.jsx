@@ -43,7 +43,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
     const features = formData.get("features");
     const location = formData.get("location");
     const description = formData.get("description");
-    const photo = formData.get("photo");
+    const photo = formData.get("image");
     const date = new Date();
 
     const updateCarData = {
@@ -57,7 +57,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
       registration,
       features,
       description,
-      photo: photo?.path || updatedCar.photo,
+      photo,
       location,
       date,
       status: "Pending",
@@ -94,11 +94,14 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
     <>
       <tr className="hover text-lg font-semibold text-center">
         <td className="border border-gray-300 px-4 py-2">
-          <img
-            src={photo}
-            alt={photo}
-            className="h-16 w-16 object-cover rounded-md"
-          />
+          <div className="flex justify-center">
+            {" "}
+            <img
+              src={photo}
+              alt={photo}
+              className="h-16 w-32 object-cover rounded-md flex"
+            />
+          </div>
         </td>
         <td className="border border-gray-300 px-4 py-2">{model}</td>
         <td className="border border-gray-300 px-4 py-2">${rentalPrice}</td>
@@ -116,7 +119,6 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
               <FaTrashRestoreAlt />
             </button>
             <Link>
-              {/* to={`/update/${_id}`} */}{" "}
               <button
                 onClick={handleUpdateNow}
                 className="hover:text-blue-600 text-2xl"
@@ -225,9 +227,15 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Select Image</span>
+                    <span className="label-text">Image</span>
                   </label>
-                  <SelectImage></SelectImage>
+                  <input
+                    type="url"
+                    name="image"
+                    placeholder="Image Url"
+                    className="input input-bordered"
+                    required
+                  />
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -243,14 +251,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                 </div>
 
                 <div className="form-control mt-6 col-span-2">
-                  <button
-                    className="btn btn-primary"
-                    // onClick={() => {
-                    //   handleConfirmModal();
-                    // }}
-                  >
-                    Update Car
-                  </button>
+                  <button className="btn btn-primary">Update Car</button>
                   <button
                     type="button"
                     className="btn btn-secondary"

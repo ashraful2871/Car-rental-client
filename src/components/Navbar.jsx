@@ -12,7 +12,18 @@ const Navbar = () => {
   const menuLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300"
+                : ""
+            }`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
         <NavLink to="/available_car">Available Car</NavLink>

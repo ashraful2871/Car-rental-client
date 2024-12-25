@@ -89,12 +89,7 @@ const CarDetails = () => {
     <div>
       <div className="flex flex-col md:flex-row text-base-content items-start p-6 rounded-lg shadow-md">
         <div className="w-full md:w-1/2">
-          {/* image should be dynamic  ❌❌❌❌❌✅✅✅✅✅*/}
-          <img
-            src="https://via.placeholder.com/500x300"
-            alt="Car"
-            className="rounded-lg w-full"
-          />
+          <img src={photo} alt="Car" className="rounded-lg w-full h-[400px]" />
         </div>
 
         <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-6 space-y-5 ">

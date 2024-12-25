@@ -51,7 +51,7 @@ const AddCar = () => {
     const features = form.get("features");
     const location = form.get("location");
     const description = form.get("description");
-    const photo = form.get("photo");
+    const photo = form.get("image");
     const date = new Date();
 
     const CarData = {
@@ -65,7 +65,7 @@ const AddCar = () => {
       registration,
       features,
       description,
-      photo: photo?.path || "",
+      photo,
       location,
       date,
       status: "Pending",
@@ -85,7 +85,7 @@ const AddCar = () => {
       // await axios.post(`${import.meta.env.VITE_API_URL}/add-jobs`, formData);
 
       // 2. Reset form
-      form.reset();
+      e.target.reset();
 
       // 3. Show toast and navigate
       // toast.success("data added successfully");
@@ -157,8 +157,7 @@ const AddCar = () => {
             <input
               type="text"
               name="registration"
-              placeholder="Add Vehicle Registration Number
-  "
+              placeholder="Add Vehicle Registration Number"
               className="input input-bordered"
               required
             />
@@ -197,9 +196,15 @@ const AddCar = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Select Image</span>
+              <span className="label-text">Image</span>
             </label>
-            <SelectImage></SelectImage>
+            <input
+              type="url"
+              name="image"
+              placeholder="Image Url"
+              className="input input-bordered"
+              required
+            />
           </div>
           <div className="form-control">
             <label className="label">
@@ -208,7 +213,7 @@ const AddCar = () => {
             <textarea
               name="description"
               className="textarea textarea-bordered h-36"
-              placeholder="Bio"
+              placeholder="Description"
               required
             ></textarea>
           </div>

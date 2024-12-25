@@ -15,11 +15,7 @@ const ListView = ({ car }) => {
   return (
     <div className="card card-side bg-base-100 border-2 p-4 gap-5">
       <div className="w-[750px] ">
-        <img
-          className=" w-full h-full rounded-xl"
-          src="https://i.ibb.co.com/WB2wdgg/bmw.jpg"
-          alt="Movie"
-        />
+        <img className=" w-full h-full rounded-xl" src={photo} alt="Car" />
       </div>
       <div className="w-full font-semibold space-y-3 ">
         <h2 className="card-title text-3xl">{model}</h2>
