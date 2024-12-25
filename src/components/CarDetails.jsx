@@ -119,9 +119,6 @@ const CarDetails = () => {
             <li>
               <strong>Features:</strong> {features}
             </li>
-            <li>
-              <strong>Reviews:</strong>
-            </li>
           </ul>
           <button
             className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base mt-4"

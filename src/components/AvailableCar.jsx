@@ -64,7 +64,7 @@ const AvailableCar = () => {
 
           <button
             onClick={() => setView("list")}
-            className="btn btn-neutral  text-white font-bold text-base"
+            className="btn btn-primary  text-white font-bold text-base"
           >
             List View
           </button>
