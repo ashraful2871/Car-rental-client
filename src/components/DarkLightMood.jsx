@@ -15,7 +15,7 @@ const DarkLightMood = () => {
   };
 
   return (
-    <label className="swap swap-rotate">
+    <label className="swap swap-rotate mt-2">
       <input
         type="checkbox"
         className="theme-controller"
@@ -24,7 +24,7 @@ const DarkLightMood = () => {
       />
 
       <svg
-        className="swap-off h-10 w-10 fill-current"
+        className="swap-off h-7 w-8 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
@@ -32,7 +32,7 @@ const DarkLightMood = () => {
       </svg>
 
       <svg
-        className="swap-on h-10 w-10 fill-current"
+        className="swap-on  h-7 w-8 fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
       >
