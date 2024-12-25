@@ -100,7 +100,7 @@ const AddCar = () => {
       <div className="card bg-base-100 w-full  shadow-2xl">
         <form
           onSubmit={handleSubmit}
-          className="card-body grid grid-cols-2 gap-8"
+          className="card-body grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           <div className="form-control">
             <label className="label">
@@ -211,7 +211,7 @@ const AddCar = () => {
               required
             ></textarea>
           </div>
-          <div className="form-control mt-6 col-span-2">
+          <div className="form-control mt-6 md:col-span-2">
             <button
               className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold 
             rounded-lg transition duration-300 text-base"
