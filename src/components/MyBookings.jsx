@@ -52,7 +52,7 @@ const MyBookings = () => {
   return (
     <div className="overflow-x-auto">
       <table className="table table-auto border-collapse border border-gray-200 w-full text-left">
-        <thead className="bg-primary text-white text-base text-center">
+        <thead className="bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base text-center">
           <tr>
             <th className="border border-gray-300 px-4 py-2 ">Car Image</th>
             <th className="border border-gray-300 px-4 py-2">Car Model</th>

@@ -98,7 +98,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
             {" "}
             <img
               src={photo}
-              alt={photo}
+              alt="Car"
               className="h-16 w-32 object-cover rounded-md flex"
             />
           </div>
@@ -234,6 +234,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                     name="image"
                     placeholder="Image Url"
                     className="input input-bordered"
+                    defaultValue={photo}
                     required
                   />
                 </div>
@@ -250,14 +251,18 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                   ></textarea>
                 </div>
 
-                <div className="form-control mt-6 col-span-2">
-                  <button className="btn btn-primary">Update Car</button>
+                <div className="form-control mt-6">
                   <button
                     type="button"
-                    className="btn btn-secondary"
+                    className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base"
                     onClick={handleCancelModal}
                   >
                     Cancel
+                  </button>
+                </div>
+                <div className="form-control mt-6">
+                  <button className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base">
+                    Update Car
                   </button>
                 </div>
               </form>

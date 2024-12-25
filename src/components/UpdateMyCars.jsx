@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SelectImage from "./SelectImage";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
