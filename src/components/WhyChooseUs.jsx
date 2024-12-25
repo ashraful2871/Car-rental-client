@@ -9,7 +9,7 @@ import {
 const WhyChooseUs = () => {
   return (
     <div className="bg-base-100 text-base-content py-12 px-6">
-      <h2 className="text-4xl font-bold text-center mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
         Why Choose <span className="text-red-500">Us</span>
       </h2>
       <p className="text-center bg-base-100 text-base-content mb-10">

@@ -22,7 +22,7 @@ export default function Banner() {
         className="h-full"
       >
         <SwiperSlide>
-          <div className="relative w-full h-full rounded-2xl">
+          <div className="relative w-full h-[300px] md:h-full rounded-2xl">
             <img
               src="https://i.ibb.co.com/yND6jr7/bugati.webp"
               alt="Car 1"
@@ -42,7 +42,7 @@ export default function Banner() {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative w-full h-full rounded-2xl">
+          <div className="relative w-full h-[300px] md:h-full rounded-2xl">
             <img
               src="https://i.ibb.co.com/N21fX1f/car.webp"
               alt="Car 1"
