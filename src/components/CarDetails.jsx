@@ -78,7 +78,13 @@ const CarDetails = () => {
       console.log(data);
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data);
+      toast.error(error.response.data, {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     }
     setOpenModal(false);
   };
@@ -118,7 +124,7 @@ const CarDetails = () => {
             </li>
           </ul>
           <button
-            className="btn btn-primary text-white font-bold text-base mt-4"
+            className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base mt-4"
             onClick={handleBookNow}
           >
             Book Now
@@ -153,13 +159,13 @@ const CarDetails = () => {
             </ul>
             <div className="modal-action">
               <button
-                className="btn btn-error text-white font-bold text-base"
+                className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base"
                 onClick={handleCancelModal}
               >
                 Cancel
               </button>
               <button
-                className="btn btn-primary text-white font-bold text-base"
+                className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base"
                 onClick={() => {
                   handleConfirmModal();
                 }}

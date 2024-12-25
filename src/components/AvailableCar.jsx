@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import AvailableCarCard from "./AvailableCarCard";
-import { Link } from "react-router-dom";
 import ListView from "./ListView";
 
 const AvailableCar = () => {
@@ -28,19 +27,15 @@ const AvailableCar = () => {
       <div className="flex  justify-between">
         <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
           <form onSubmit={(e) => e.preventDefault()}>
-            <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+            <div className="flex p-1 overflow-hidden border-2 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
               <input
-                className="px-6 py-2 text-gray-700 placeholder-gray-500  outline-none focus:placeholder-transparent "
+                className="px-6 py-2 text-gray-700 placeholder-gray-500 outline-none focus:placeholder-transparent"
                 type="text"
                 name="search"
-                placeholder="Enter Car Model, Location"
-                aria-label="Enter Car Model, Location"
+                placeholder="Search Car Model, Location"
+                aria-label="Search Car Model, Location"
                 onChange={(e) => setSearch(e.target.value)}
               />
-
-              <button className="btn btn-primary text-white font-bold text-base">
-                Search
-              </button>
             </div>
           </form>
           <div>
@@ -55,20 +50,21 @@ const AvailableCar = () => {
               <option value="date-asc">Date ( Oldest First)</option>
             </select>
           </div>
-          <button className="btn btn-primary text-white font-bold text-base">
+          <button className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base">
             Reset
           </button>
         </div>
         <div className="flex gap-5">
           <button
             onClick={() => setView("grid")}
-            className="btn btn-primary text-white font-bold text-base"
+            className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300"
           >
             Grid View
           </button>
+
           <button
             onClick={() => setView("list")}
-            className="btn btn-neutral text-white font-bold text-base"
+            className="btn btn-neutral  text-white font-bold text-base"
           >
             List View
           </button>
