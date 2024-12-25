@@ -16,8 +16,19 @@ const MyCars = () => {
     fetchAllCar();
   }, [user?.email, sort]);
   const fetchAllCar = async () => {
-    const { data } = await axiosSecure.get(`/cars/${user?.email}?sort=${sort}`);
-    setCars(data);
+    try {
+      const response = await axiosSecure.get(
+        `/cars/${user?.email}?sort=${sort}`
+      );
+      setCars(response?.data);
+    } catch (err) {
+      console.error("Error fetching cars:", err.response?.data || err.message);
+      if (err.response?.status === 401) {
+        toast.error("Unauthorized access. Please log in again.");
+      } else {
+        toast.error("An error occurred while fetching cars.");
+      }
+    }
   };
 
   const handleDelete = async (id) => {

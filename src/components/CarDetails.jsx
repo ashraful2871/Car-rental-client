@@ -33,6 +33,7 @@ const CarDetails = () => {
     date,
     status,
   } = car;
+  console.log(car);
 
   const handleBookNow = async () => {
     // 1.check book permission validation

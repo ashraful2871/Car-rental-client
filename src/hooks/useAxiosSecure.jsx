@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
   baseURL: "http://localhost:5000",
-  withCredentials: true,
+  withCredentials: true, // Ensure credentials are sent with the request
 });
 
 const useAxiosSecure = () => {
@@ -20,11 +20,16 @@ const useAxiosSecure = () => {
         console.log("error caught in our very won interceptor", err);
         if (err.response.status === 401 || err.response.status === 403) {
           //make user logout
-          signOutUser();
-
-          //also redirect in login
-          navigate("/login");
+          signOutUser()
+            .then(() => {
+              console.log("logged out user");
+              navigate("/login");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         }
+        // return Promise.reject(err);
       }
     );
   }, [signOutUser, navigate]);
