@@ -130,13 +130,6 @@ const AddCar = () => {
             <label className="label">
               <span className="label-text">Availability</span>
             </label>
-            {/* <input
-                type="text"
-                name="availability"
-                placeholder="Availability"
-                className="input input-bordered"
-                required
-              /> */}
             <select
               name="availability"
               id="availability"
@@ -219,7 +212,10 @@ const AddCar = () => {
             ></textarea>
           </div>
           <div className="form-control mt-6 col-span-2">
-            <button className="btn btn-primary text-white font-bold text-base">
+            <button
+              className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold 
+            rounded-lg transition duration-300 text-base"
+            >
               {isPending ? "Adding..." : "Add Car"}
             </button>
           </div>
