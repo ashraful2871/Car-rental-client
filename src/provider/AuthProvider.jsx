@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
 
         //generate token
         const { data } = await axios.post(
-          "http://localhost:5000/jwt",
+          `${import.meta.env.VITE_API_URL}/jwt`,
           {
             email: currentUser?.email,
           },
@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
       } else {
         setUser(currentUser);
         //clear token
-        await axios.get("http://localhost:5000/logout", {
+        await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
           withCredentials: true,
         });
       }

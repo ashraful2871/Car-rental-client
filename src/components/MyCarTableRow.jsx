@@ -137,7 +137,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
             <div className="card bg-base-100 w-full">
               <form
                 onSubmit={handleUpdate}
-                className="card-body grid grid-cols-2 gap-8"
+                className="card-body grid grid-cols-1 md:grid-cols-2 gap-8"
               >
                 <div className="form-control">
                   <label className="label">
@@ -250,20 +250,21 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                     required
                   ></textarea>
                 </div>
-
-                <div className="form-control mt-6">
-                  <button
-                    type="button"
-                    className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base"
-                    onClick={handleCancelModal}
-                  >
-                    Cancel
-                  </button>
-                </div>
-                <div className="form-control mt-6">
-                  <button className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base">
-                    Update Car
-                  </button>
+                <div className="grid grid-cols-2 md:col-span-2 gap-8">
+                  <div className="form-control mt-6">
+                    <button
+                      type="button"
+                      className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300 text-base"
+                      onClick={handleCancelModal}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <div className="form-control mt-6">
+                    <button className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base w-32 md:w-full">
+                      Update Car
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
