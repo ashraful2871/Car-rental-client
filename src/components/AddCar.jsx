@@ -4,6 +4,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
 
 const AddCar = () => {
   const queryClient = useQueryClient();
@@ -98,6 +99,15 @@ const AddCar = () => {
   return (
     <div>
       <div className="card bg-base-100 w-full  shadow-2xl">
+        <div>
+          {" "}
+          <h2 className="text-center text-3xl md:text-5xl font-bold">
+            {" "}
+            <span>
+              <Typewriter words={["Add Car For Rent"]} />
+            </span>
+          </h2>
+        </div>
         <form
           onSubmit={handleSubmit}
           className="card-body grid grid-cols-1 md:grid-cols-2 gap-8"

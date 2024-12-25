@@ -7,6 +7,7 @@ import SelectImage from "./SelectImage";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -135,6 +136,15 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
         <div className="modal modal-open">
           <div className="modal-box w-11/12 max-w-5xl">
             <div className="card bg-base-100 w-full">
+              <div>
+                {" "}
+                <h2 className="text-center text-3xl md:text-4xl font-bold">
+                  {" "}
+                  <span>
+                    <Typewriter words={["Update Car Data"]} />
+                  </span>
+                </h2>
+              </div>
               <form
                 onSubmit={handleUpdate}
                 className="card-body grid grid-cols-1 md:grid-cols-2 gap-8"
