@@ -22,7 +22,13 @@ const offers = [
 const SpecialOffers = () => {
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-6 text-center">Special Offers</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+        Special <span className="text-red-600">Offer</span>
+      </h2>
+      <p className="text-center bg-base-100 text-base-content mb-10">
+        Discover special offers on cars,with exclusive discounts and
+        limited-time deals.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {offers.map((offer, index) => (
           <motion.div
