@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { formatDistanceToNow } from "date-fns";
 
 const ListingsCard = ({ listing }) => {
   const { availability, date, model, photo, rentalPrice } = listing;
@@ -22,7 +23,9 @@ const ListingsCard = ({ listing }) => {
             </span>
           )}
         </div>
-        <p className="text-sm text-gray-400">Added {date}</p>
+        <p className="text-sm text-gray-400">
+          Added {formatDistanceToNow(new Date(date), { addSuffix: true })}
+        </p>
       </div>
     </div>
   );

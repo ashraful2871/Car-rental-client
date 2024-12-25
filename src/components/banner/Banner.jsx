@@ -34,7 +34,7 @@ export default function Banner() {
               </h1>
               <Link to="/available_car">
                 {" "}
-                <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300">
+                <button className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300">
                   View Available Cars
                 </button>
               </Link>
@@ -54,7 +54,7 @@ export default function Banner() {
               </h1>
               <Link to="/available_car">
                 {" "}
-                <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300">
+                <button className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300">
                   View Available Cars
                 </button>
               </Link>

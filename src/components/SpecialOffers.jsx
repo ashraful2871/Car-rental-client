@@ -34,7 +34,9 @@ const SpecialOffers = () => {
           >
             <h3 className="text-xl font-semibold mb-2">{offer.title}</h3>
             <p className="text-gray-500 mb-4">{offer.description}</p>
-            <button className="btn btn-primary">{offer.buttonText}</button>
+            <button className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300">
+              {offer.buttonText}
+            </button>
           </motion.div>
         ))}
       </div>

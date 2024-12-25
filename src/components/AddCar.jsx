@@ -1,14 +1,15 @@
 import React from "react";
-import SelectImage from "./SelectImage";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 const AddCar = () => {
   const queryClient = useQueryClient();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const { isPending, mutateAsync } = useMutation({
     mutationFn: async (CarData) => {
       const { data } = await axiosSecure.post(`/add_car`, CarData);
@@ -27,7 +28,7 @@ const AddCar = () => {
           color: "#fff",
         },
       });
-      //   navigate("/my-posted-jobs");
+      navigate("/my_cars");
     },
     onError: (err) => {
       toast.error(err.message, {

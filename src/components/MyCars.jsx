@@ -67,12 +67,12 @@ const MyCars = () => {
             name="category"
             id="category"
             value={sort}
-            className="border-2 font-bold p-4 rounded-md"
+            className="border-2 font-bold p-4 rounded-md text-center"
             onChange={(e) => setSort(e.target.value)}
           >
-            <option value="">Sort By Date/Price</option>
+            <option value="">Sort By Date</option>
             <option value="dsc">Date (Newest First)</option>
-            <option value="asc">price (Lowest First)</option>
+            <option value="asc">Date (Oldest First)</option>
           </select>
         </div>
       </div>

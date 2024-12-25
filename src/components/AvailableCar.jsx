@@ -47,12 +47,12 @@ const AvailableCar = () => {
             <select
               name="category"
               id="category"
-              className="border p-4 rounded-md"
+              className="border p-4 rounded-md text-center"
               onChange={(e) => setSort(e.target.value)}
             >
-              <option value="">Sort By Date, price</option>
+              <option value="">Sort By Date</option>
               <option value="date-dsc">Date (Newest First)</option>
-              <option value="price-asc">Price (Lowest First)</option>
+              <option value="date-asc">Date ( Oldest First)</option>
             </select>
           </div>
           <button className="btn btn-primary text-white font-bold text-base">

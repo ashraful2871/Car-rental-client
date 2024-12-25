@@ -16,7 +16,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${
               isActive
-                ? "bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300"
+                ? "bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300"
                 : ""
             }`
           }
