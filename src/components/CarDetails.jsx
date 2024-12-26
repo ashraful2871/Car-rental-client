@@ -1,26 +1,75 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import Loading from "./Loading";
+import ButtonSpinner from "./ButtonSpinner";
 
 const CarDetails = () => {
+  const queryClient = useQueryClient();
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
   const { id } = useParams();
-  const [car, setCar] = useState({});
+  // const [car, setCar] = useState({});
   const { user } = useAuth();
-  useEffect(() => {
-    fetchJobData();
-  }, [id]);
+  // useEffect(() => {
+  //   fetchJobData();
+  // }, [id]);
 
-  const fetchJobData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/car/${id}`
-    );
-    setCar(data);
-    // setStartDate(new Date(data.deadline));
-  };
+  // const fetchJobData = async () => {
+  //   const { data } = await axios.get(
+  //     `${import.meta.env.VITE_API_URL}/car/${id}`
+  //   );
+  //   setCar(data);
+  //   // setStartDate(new Date(data.deadline));
+  // };
 
+  const { data: car, isLoading } = useQuery({
+    queryKey: ["car", id],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_API_URL}/car/${id}`
+      );
+      return data;
+    },
+  });
+
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: async (bookData) => {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/add_book`,
+        bookData
+      );
+      console.log(data);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["book"] });
+      toast.success("Car Book successful", {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      navigate("/my_bookings");
+    },
+    onError: (error) => {
+      toast.error(error.response.data, {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+      setOpenModal(false);
+    },
+  });
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
   const {
     _id,
     model,
@@ -33,7 +82,7 @@ const CarDetails = () => {
     date,
     status,
   } = car;
-  console.log(car);
+  // console.log(car);
 
   const handleBookNow = async () => {
     // 1.check book permission validation
@@ -64,34 +113,36 @@ const CarDetails = () => {
     };
 
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/add_book`,
-        bookData
-      );
-      toast.success("Car Book successful", {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
-      // navigate("/my-bids");
-      console.log(data);
+      await mutateAsync(bookData);
+      // const { data } = await axios.post(
+      //   `${import.meta.env.VITE_API_URL}/add_book`,
+      //   bookData
+      // );
+      // toast.success("Car Book successful", {
+      //   style: {
+      //     borderRadius: "10px",
+      //     background: "#333",
+      //     color: "#fff",
+      //   },
+      // });
+      // navigate("/my_bookings");
+      // console.log(data);
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data, {
-        style: {
-          borderRadius: "10px",
-          background: "#333",
-          color: "#fff",
-        },
-      });
+      // toast.error(error.response.data, {
+      //   style: {
+      //     borderRadius: "10px",
+      //     background: "#333",
+      //     color: "#fff",
+      //   },
+      // });
     }
-    setOpenModal(false);
+    // setOpenModal(false);
   };
   const handleCancelModal = () => {
     setOpenModal(false);
   };
+
   return (
     <div>
       <div className="flex flex-col md:flex-row text-base-content items-start p-6 rounded-lg shadow-md">
@@ -168,7 +219,7 @@ const CarDetails = () => {
                   handleConfirmModal();
                 }}
               >
-                Confirm
+                {isPending ? <ButtonSpinner></ButtonSpinner> : "Confirm"}
               </button>
             </div>
           </div>

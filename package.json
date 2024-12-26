@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/coreui": "^5.2.0",
+    "@coreui/react": "^5.4.1",
     "@emotion/react": "^11.14.0",
     "@tanstack/react-query": "^5.62.8",
     "axios": "^1.7.9",

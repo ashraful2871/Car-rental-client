@@ -4,38 +4,58 @@ import { useEffect, useState } from "react";
 import AvailableCarCard from "./AvailableCarCard";
 import ListView from "./ListView";
 import Loading from "./Loading";
+import { useQuery } from "@tanstack/react-query";
 
 const AvailableCar = () => {
-  const [cars, setCars] = useState([]);
+  // const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [view, setView] = useState("grid");
   // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchAllCar = async () => {
+  // useEffect(() => {
+  //   const fetchAllCar = async () => {
+  //     const { data } = await axios.get(
+  //       `${import.meta.env.VITE_API_URL}/cars?search=${search}&sort=${sort}`
+  //     );
+  //     setCars(data);
+  //   };
+  //   fetchAllCar();
+  //   // setLoading(false);
+  // }, [search, sort]);
+
+  // const {
+  //   data: jobs,
+  //   isLoading,
+  //   isPending,
+  //   isFetching,
+  //   isSuccess,
+  //   isError,
+  // } = useQuery({
+  //   queryKey: ["jobs"],
+  //   queryFn: async () => {
+  //     const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/jobs`);
+  //     return data;
+  //   },
+  // });
+
+  const { data: cars, isLoading } = useQuery({
+    queryKey: ["cars"],
+    queryFn: async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/cars?search=${search}&sort=${sort}`
       );
-      setCars(data);
-    };
-    fetchAllCar();
-    // setLoading(false);
-  }, [search, sort]);
+      return data;
+    },
+  });
 
-  const handleReset = () => {
-    setSort("");
-    setSearch("");
-  };
-  // if (loading) {
-  //   <Loading></Loading>;
-  // }
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <div className="md:space-y-9">
       <div className="flex  justify-between flex-col md:flex-row p-4 md:p-0">
-        {/* <div className="grid grid-cols-2 gap-6 col-span-2 "> */}
-
         <div className="flex  justify-center items-center gap-5">
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="flex p-1 overflow-hidden border-2 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
@@ -61,12 +81,6 @@ const AvailableCar = () => {
               <option value="date-asc">Date ( Oldest First)</option>
             </select>
           </div>
-          {/* <button
-            onClick={handleReset}
-            className="btn btn-primary text-white font-bold text-base"
-          >
-            Reset
-          </button> */}
         </div>
         <div className="flex gap-5 justify-end mt-6 md:mt-0">
           <button

@@ -5,11 +5,13 @@ import SpecialOffers from "./SpecialOffers";
 import Listings from "./Listings";
 import OurServices from "./OurServices";
 import OurSell from "./OurSell";
+import ButtonSpinner from "./ButtonSpinner";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <ButtonSpinner></ButtonSpinner>
       <WhyChooseUs></WhyChooseUs>
       <Listings></Listings>
       <SpecialOffers></SpecialOffers>

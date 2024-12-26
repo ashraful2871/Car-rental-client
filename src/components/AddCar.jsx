@@ -18,10 +18,7 @@ const AddCar = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["cars"] });
-      // 2. Reset form
-      // form.reset();
 
-      // 3. Show toast and navigate
       toast.success("data added successfully", {
         style: {
           borderRadius: "10px",
@@ -76,22 +73,9 @@ const AddCar = () => {
     console.log(CarData);
 
     await mutateAsync(CarData);
-    //save joData in db
-    // const { data } = await axios.post(
-    //   `${import.meta.env.VITE_API_URL}/add-jobs`,
-    //   formData
-    // );
+
     try {
-      //make post request using useMutation hook
-
-      // await axios.post(`${import.meta.env.VITE_API_URL}/add-jobs`, formData);
-
-      // 2. Reset form
       e.target.reset();
-
-      // 3. Show toast and navigate
-      // toast.success("data added successfully");
-      // navigate("/my-posted-jobs");
     } catch (error) {
       // toast.error(error.message);
     }
