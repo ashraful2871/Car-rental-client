@@ -8,7 +8,6 @@ import AddCar from "../components/AddCar";
 import MyCars from "../components/MyCars";
 import MyBookings from "../components/MyBookings";
 import Privet from "../privet/Privet";
-import UpdateMyCars from "../components/UpdateMyCars";
 
 import CarDetails from "../components/CarDetails";
 import Error from "../components/Error";
@@ -17,7 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    // errorElement: <Error></Error>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -48,14 +47,6 @@ const router = createBrowserRouter([
         element: (
           <Privet>
             <MyCars></MyCars>
-          </Privet>
-        ),
-      },
-      {
-        path: "/update/:id",
-        element: (
-          <Privet>
-            <UpdateMyCars></UpdateMyCars>
           </Privet>
         ),
       },

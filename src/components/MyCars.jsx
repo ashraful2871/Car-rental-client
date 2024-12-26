@@ -17,13 +17,13 @@ const MyCars = () => {
   }, [user?.email, sort]);
   const fetchAllCar = async () => {
     try {
-      const response = await axiosSecure.get(
+      const { data } = await axiosSecure.get(
         `/cars/${user?.email}?sort=${sort}`
       );
-      setCars(response?.data);
+      setCars(data);
     } catch (err) {
-      console.error("Error fetching cars:", err.response?.data || err.message);
-      if (err.response?.status === 401) {
+      console.error("Error fetching cars:", err.data || err.message);
+      if (err.status === 401) {
         toast.error("Unauthorized access. Please log in again.");
       } else {
         toast.error("An error occurred while fetching cars.");

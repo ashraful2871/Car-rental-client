@@ -114,9 +114,6 @@ const MyBookings = () => {
                 </td>
                 <td className="border border-gray-300 px-4 py-2 ">
                   <div className="flex justify-center gap-4">
-                    <button className="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 transition-all flex gap-1 items-center shadow-md">
-                      <MdOutlineDateRange /> Modify
-                    </button>
                     <button
                       onClick={() =>
                         handleStatusChange(

@@ -67,7 +67,7 @@ const AddCar = () => {
       photo,
       location,
       date,
-      status: "Pending",
+      status: "Confirmed",
       booking_count: 0,
     };
     console.log(CarData);
@@ -151,7 +151,7 @@ const AddCar = () => {
               </span>
             </label>
             <input
-              type="text"
+              type="number"
               name="registration"
               placeholder="Add Vehicle Registration Number"
               className="input input-bordered"

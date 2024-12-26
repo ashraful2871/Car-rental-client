@@ -16,11 +16,11 @@ const ListingsCard = ({ listing }) => {
         <p className="text-gray-500">${rentalPrice}/day</p>
         <div className="flex items-center gap-2">
           {availability ? (
-            <span className="badge badge-success flex items-center gap-1">
+            <span className="badge badge-success flex items-center text-white gap-1">
               <FaCheckCircle /> Available
             </span>
           ) : (
-            <span className="badge badge-error flex items-center gap-1">
+            <span className="badge badge-error flex items-center text-white gap-1">
               <FaTimesCircle /> Not Available
             </span>
           )}

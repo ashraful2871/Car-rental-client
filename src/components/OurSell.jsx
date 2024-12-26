@@ -29,13 +29,13 @@ const OurSell = () => {
     },
     {
       id: 5,
-      name: "Life Jacket Model 2018",
+      name: "Life Jacket Model",
       price: "$15.00",
       image: "https://i.ibb.co.com/LZSSBK6/lifejacket.jpg",
     },
     {
       id: 6,
-      name: "Motorcycle Camera",
+      name: "Motorcycle",
       price: "$100.00",
       image: "https://i.ibb.co.com/8r30YJg/F45-X-800x800.jpg",
     },
@@ -62,9 +62,7 @@ const OurSell = () => {
                   alt={product.name}
                   className="w-full h-40 object-cover mb-4"
                 />
-                <h3 className="text-lg font-semibold">
-                  {product.name.toUpperCase()}
-                </h3>
+                <h3 className="text-lg font-semibold">{product.name}</h3>
                 <p className="text-red-500 font-bold">{product.price}</p>
               </div>
             </Fade>

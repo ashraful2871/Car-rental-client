@@ -1,9 +1,8 @@
 import { format } from "date-fns";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaTrashRestoreAlt } from "react-icons/fa";
 import { TiEdit } from "react-icons/ti";
 import { Link } from "react-router-dom";
-import SelectImage from "./SelectImage";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
@@ -96,7 +95,6 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
       <tr className="hover text-lg font-semibold text-center">
         <td className="border border-gray-300 px-4 py-2">
           <div className="flex justify-center">
-            {" "}
             <img
               src={photo}
               alt="Car"
@@ -112,7 +110,6 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
         </td>
         <td className="border border-gray-300 px-4 py-2">
           <div className="flex gap-7 justify-center">
-            {" "}
             <button
               onClick={() => confirmDelete(_id)}
               className="hover:text-red-600 text-xl"
@@ -137,9 +134,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
           <div className="modal-box w-11/12 max-w-5xl">
             <div className="card bg-base-100 w-full">
               <div>
-                {" "}
                 <h2 className="text-center text-3xl md:text-4xl font-bold">
-                  {" "}
                   <span>
                     <Typewriter words={["Update Car Data"]} />
                   </span>
@@ -173,7 +168,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                   <input
                     type="number"
                     name="rentalPrice"
-                    placeholder="Car Model"
+                    placeholder="Rental Price"
                     className="input input-bordered"
                     defaultValue={rentalPrice}
                     required
@@ -203,7 +198,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                     </span>
                   </label>
                   <input
-                    type="text"
+                    type="numbers"
                     name="registration"
                     defaultValue={registration}
                     placeholder="Add Vehicle Registration Number"
@@ -292,19 +287,6 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
                 </div>
               </form>
             </div>
-            {/* <div className="modal-action">
-              <button className="btn btn-secondary" onClick={handleCancelModal}>
-                Cancel
-              </button>
-              <button
-                className="btn btn-primary"
-                onClick={() => {
-                  handleConfirmModal();
-                }}
-              >
-                Confirm
-              </button>
-            </div> */}
           </div>
         </div>
       )}

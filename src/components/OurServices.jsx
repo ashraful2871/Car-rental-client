@@ -31,7 +31,7 @@ const OurServices = () => {
       <p className="text-center bg-base-100 text-base-content mb-10">
         We've got you covered with top-notch options tailored to your needs!
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-12">
         {rentals.map((rental, idx) => (
           <Fade cascade damping={0.2}>
             <div
