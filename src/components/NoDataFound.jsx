@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const NoDataFound = () => {
   return (
     <div className="grid grid-cols-12">
-      <div className="flex justify-center flex-col col-span-12 w-[350x] md:w-[1530px] items-center min-h-[660px] bg-white space-y-5 rounded-xl">
+      <div className="flex justify-center flex-col col-span-12 w-[350x] md:w-[1530px] items-center min-h-[660px] bg-base-100 text-base-content space-y-5 rounded-xl">
         <div className="mb-10">
           <img
-            className="h-24 w-24"
+            className="h-24 w-24 rounded-xl"
             src="https://i.ibb.co.com/02xpnf8/car-free-day-symbol-isolated-icon-18591-83177.jpg"
             alt=""
           />

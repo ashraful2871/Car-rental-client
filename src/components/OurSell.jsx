@@ -1,45 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import Loading from "./Loading";
 
 const OurSell = () => {
-  const fakeData = [
-    {
-      id: 1,
-      name: "Bluetooth Car",
-      price: "$120.00",
-      image: "https://i.ibb.co.com/gmXZh3N/bll.webp",
+  const { data: sells, isLoading } = useQuery({
+    queryKey: ["sells"],
+    queryFn: async () => {
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/sell`);
+      return data;
     },
-    {
-      id: 2,
-      name: "Energiser Black",
-      price: "$100.00",
-      image: "https://i.ibb.co.com/HCkhgz0/energizer.jpg",
-    },
-    {
-      id: 3,
-      name: "Fox Racing V2",
-      price: "$35.00",
-      image: "https://i.ibb.co.com/hZZNn4W/fff.jpg",
-    },
-    {
-      id: 4,
-      name: "Icon SuperDuty 2",
-      price: "$35.00",
-      image: "https://i.ibb.co.com/jVGr9xv/sss.jpg",
-    },
-    {
-      id: 5,
-      name: "Life Jacket Model",
-      price: "$15.00",
-      image: "https://i.ibb.co.com/LZSSBK6/lifejacket.jpg",
-    },
-    {
-      id: 6,
-      name: "Motorcycle",
-      price: "$100.00",
-      image: "https://i.ibb.co.com/8r30YJg/F45-X-800x800.jpg",
-    },
-  ];
+  });
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
   return (
     <>
       <h2 className="text-3xl md:text-4xl font-bold mt-12 text-center">
@@ -51,19 +27,16 @@ const OurSell = () => {
 
       <div className="container mx-auto p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {fakeData.map((product) => (
+          {sells.map((sell) => (
             <Fade cascade damping={0.2}>
-              <div
-                key={product.id}
-                className="border rounded-lg p-4 text-center"
-              >
+              <div key={sell.id} className="border rounded-lg p-4 text-center">
                 <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-40 object-cover mb-4"
+                  src={sell.image}
+                  alt="product"
+                  className="w-full h-60 object-cover mb-4"
                 />
-                <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-red-500 font-bold">{product.price}</p>
+                <h3 className="text-lg font-semibold">{sell.name}</h3>
+                <p className="text-red-500 font-bold">{sell.price}</p>
               </div>
             </Fade>
           ))}

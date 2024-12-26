@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 import MyCarTableRow from "./MyCarTableRow";
 import NoDataFound from "./NoDataFound";
+import Swal from "sweetalert2";
 
 const MyCars = () => {
   const axiosSecure = useAxiosSecure();
@@ -33,41 +34,29 @@ const MyCars = () => {
 
   const handleDelete = async (id) => {
     try {
-      const { data } = await axiosSecure.delete(`/cars/${id}`);
-      console.log(data);
-      toast.success("Data Deleted Successfully");
-      fetchAllCar();
+      Swal.fire({
+        title: "Are you sure?",
+        text: "you want to Delete this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await axiosSecure.delete(`/cars/${id}`);
+
+          fetchAllCar();
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your Car has been deleted.",
+            icon: "success",
+          });
+        }
+      });
     } catch (error) {
       console.log(error.message);
     }
-  };
-
-  //change after complete all requirements
-  const confirmDelete = (id) => {
-    toast((t) => (
-      <div className="flex gap-3 items-center">
-        <p>
-          Are You sure you want to <b>Delete</b> it?
-        </p>
-        <div className="flex gap-2">
-          <button
-            className="bg-red-400 text-white px-3 py-1 rounded-md"
-            onClick={() => {
-              toast.dismiss(t.id);
-              handleDelete(id);
-            }}
-          >
-            Yes
-          </button>
-          <button
-            className="bg-green-400 text-white px-3 py-1 rounded-md"
-            onClick={() => toast.dismiss(t.id)}
-          >
-            Cancel
-          </button>
-        </div>
-      </div>
-    ));
   };
 
   return (
@@ -107,7 +96,7 @@ const MyCars = () => {
             <tbody>
               {cars?.map((car, index) => (
                 <MyCarTableRow
-                  confirmDelete={confirmDelete}
+                  handleDelete={handleDelete}
                   car={car}
                   key={index}
                   fetchAllCar={fetchAllCar}

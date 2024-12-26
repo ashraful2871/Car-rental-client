@@ -4,7 +4,6 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import { FaTrashRestoreAlt } from "react-icons/fa";
-import { MdOutlineDateRange } from "react-icons/md";
 import DataVisualization from "./DataVisualization";
 
 const MyBookings = () => {

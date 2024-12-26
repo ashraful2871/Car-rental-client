@@ -84,12 +84,9 @@ const AddCar = () => {
     <div>
       <div className="card bg-base-100 w-full  shadow-2xl">
         <div>
-          {" "}
           <h2 className="text-center text-3xl md:text-5xl font-bold">
-            {" "}
-            <span>
-              <Typewriter words={["Add Car For Rent"]} />
-            </span>
+            Add Car For
+            <span className="text-red-500 "> Rent</span>
           </h2>
         </div>
         <form

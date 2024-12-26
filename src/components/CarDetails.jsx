@@ -12,19 +12,7 @@ const CarDetails = () => {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
-  // const [car, setCar] = useState({});
   const { user } = useAuth();
-  // useEffect(() => {
-  //   fetchJobData();
-  // }, [id]);
-
-  // const fetchJobData = async () => {
-  //   const { data } = await axios.get(
-  //     `${import.meta.env.VITE_API_URL}/car/${id}`
-  //   );
-  //   setCar(data);
-  //   // setStartDate(new Date(data.deadline));
-  // };
 
   const { data: car, isLoading } = useQuery({
     queryKey: ["car", id],
@@ -82,7 +70,6 @@ const CarDetails = () => {
     date,
     status,
   } = car;
-  // console.log(car);
 
   const handleBookNow = async () => {
     // 1.check book permission validation

@@ -6,13 +6,11 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
-import { Typewriter } from "react-simple-typewriter";
 
-const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
+const MyCarTableRow = ({ car, handleDelete, fetchAllCar }) => {
   const [openModal, setOpenModal] = useState(false);
   const { user } = useAuth();
-  const [updatedCar, setUpdatedCar] = useState({});
-  console.log(updatedCar);
+
   const {
     _id,
     photo,
@@ -65,11 +63,11 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
     };
 
     try {
-      const { data } = await axios.put(
+      await axios.put(
         `${import.meta.env.VITE_API_URL}/update_car/${_id}`,
         updateCarData
       );
-      setUpdatedCar(data);
+
       toast.success("data updated successfully", {
         style: {
           borderRadius: "10px",
@@ -111,7 +109,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
         <td className="border border-gray-300 px-4 py-2">
           <div className="flex gap-7 justify-center">
             <button
-              onClick={() => confirmDelete(_id)}
+              onClick={() => handleDelete(_id)}
               className="hover:text-red-600 text-xl"
             >
               <FaTrashRestoreAlt />
@@ -135,9 +133,7 @@ const MyCarTableRow = ({ car, confirmDelete, fetchAllCar }) => {
             <div className="card bg-base-100 w-full">
               <div>
                 <h2 className="text-center text-3xl md:text-4xl font-bold">
-                  <span>
-                    <Typewriter words={["Update Car Data"]} />
-                  </span>
+                  Update <span className="text-red-500">Car</span> Data
                 </h2>
               </div>
               <form

@@ -16,8 +16,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `${
               isActive
-                ? "bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300"
-                : ""
+                ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                : " hover:text-red-500 hover:font-bold"
             }`
           }
           to="/"
@@ -26,7 +26,18 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li className="hidden md:block">
-        <NavLink to="/available_car">Available Car</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                : " hover:text-red-500 hover:font-bold"
+            }`
+          }
+          to="/available_car"
+        >
+          Available Car
+        </NavLink>
       </li>
       {user ? (
         ""
@@ -35,9 +46,11 @@ const Navbar = () => {
           <NavLink
             to="/login"
             className={({ isActive }) =>
-              isActive
-                ? "bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition duration-300"
-                : ""
+              `${
+                isActive
+                  ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                  : " hover:text-red-500 hover:font-bold"
+              }`
             }
           >
             Login
@@ -50,16 +63,60 @@ const Navbar = () => {
   const dropdownLinks = (
     <>
       <li className="block md:hidden">
-        <NavLink to="/available_car">Available Car</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                : " hover:text-red-500 hover:font-bold"
+            }`
+          }
+          to="/available_car"
+        >
+          Available Car
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/add_car">Add Car</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                : " hover:text-red-500 hover:font-bold"
+            }`
+          }
+          to="/add_car"
+        >
+          Add Car
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/my_cars">My Cars</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                : " hover:text-red-500 hover:font-bold"
+            }`
+          }
+          to="/my_cars"
+        >
+          My Cars
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/my_bookings">My Bookings</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `${
+              isActive
+                ? "bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-300"
+                : " hover:text-red-500 hover:font-bold"
+            }`
+          }
+          to="/my_bookings"
+        >
+          My Bookings
+        </NavLink>
       </li>
 
       <li>

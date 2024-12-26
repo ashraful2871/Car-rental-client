@@ -7,37 +7,9 @@ import Loading from "./Loading";
 import { useQuery } from "@tanstack/react-query";
 
 const AvailableCar = () => {
-  // const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [view, setView] = useState("grid");
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchAllCar = async () => {
-  //     const { data } = await axios.get(
-  //       `${import.meta.env.VITE_API_URL}/cars?search=${search}&sort=${sort}`
-  //     );
-  //     setCars(data);
-  //   };
-  //   fetchAllCar();
-  //   // setLoading(false);
-  // }, [search, sort]);
-
-  // const {
-  //   data: jobs,
-  //   isLoading,
-  //   isPending,
-  //   isFetching,
-  //   isSuccess,
-  //   isError,
-  // } = useQuery({
-  //   queryKey: ["jobs"],
-  //   queryFn: async () => {
-  //     const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/jobs`);
-  //     return data;
-  //   },
-  // });
 
   const {
     data: cars,
@@ -81,7 +53,7 @@ const AvailableCar = () => {
             <select
               name="category"
               id="category"
-              className="border p-4 rounded-md text-center"
+              className="border p-4 rounded-md text-center bg-base-100 text-base-content font-semibold"
               onChange={(e) => setSort(e.target.value)}
             >
               <option value="">Sort By Date</option>

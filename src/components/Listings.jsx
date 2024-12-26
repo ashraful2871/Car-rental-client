@@ -1,23 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import ListingsCard from "./ListingsCard";
 import { Fade } from "react-awesome-reveal";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "./Loading";
 
 const Listings = () => {
-  // const [listings, setListings] = useState([]);
-  // useEffect(() => {
-  //   const fetchListingsCar = async () => {
-  //     const { data } = await axios.get(
-  //       `${import.meta.env.VITE_API_URL}/listings`
-  //     );
-  //     setListings(data);
-  //   };
-  //   fetchListingsCar();
-  // }, []);
-  // console.log(listings);
-
   const { data: listings, isLoading } = useQuery({
     queryKey: ["listings"],
     queryFn: async () => {
