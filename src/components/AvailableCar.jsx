@@ -26,9 +26,11 @@ const AvailableCar = () => {
   };
 
   return (
-    <div className="space-y-9">
-      <div className="flex  justify-between">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
+    <div className="md:space-y-9">
+      <div className="flex  justify-between flex-col md:flex-row p-4 md:p-0">
+        {/* <div className="grid grid-cols-2 gap-6 col-span-2 "> */}
+
+        <div className="flex  justify-center items-center gap-5">
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="flex p-1 overflow-hidden border-2 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
               <input
@@ -53,14 +55,14 @@ const AvailableCar = () => {
               <option value="date-asc">Date ( Oldest First)</option>
             </select>
           </div>
-          <button
+          {/* <button
             onClick={handleReset}
             className="btn btn-primary text-white font-bold text-base"
           >
             Reset
-          </button>
+          </button> */}
         </div>
-        <div className="flex gap-5">
+        <div className="flex gap-5 justify-end mt-6 md:mt-0">
           <button
             onClick={() => setView("grid")}
             className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300"
@@ -78,7 +80,9 @@ const AvailableCar = () => {
       </div>
       <div
         className={`${
-          view === "grid" ? "grid grid-cols-4 gap-6" : "space-y-6"
+          view === "grid"
+            ? " grid grid-cols-1 md:grid-cols-4 gap-6"
+            : "space-y-6"
         }`}
       >
         {cars.map((car, idx) =>
