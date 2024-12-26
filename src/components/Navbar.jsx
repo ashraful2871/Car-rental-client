@@ -49,6 +49,9 @@ const Navbar = () => {
 
   const dropdownLinks = (
     <>
+      <li className="block md:hidden">
+        <NavLink to="/available_car">Available Car</NavLink>
+      </li>
       <li>
         <NavLink to="/add_car">Add Car</NavLink>
       </li>
