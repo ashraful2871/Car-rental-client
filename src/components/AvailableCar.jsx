@@ -1,6 +1,6 @@
 import axios from "axios";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import AvailableCarCard from "./AvailableCarCard";
 import ListView from "./ListView";
 import Loading from "./Loading";
@@ -39,8 +39,12 @@ const AvailableCar = () => {
   //   },
   // });
 
-  const { data: cars, isLoading } = useQuery({
-    queryKey: ["cars", search, sort],
+  const {
+    data: cars,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["cars"],
     queryFn: async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/cars?search=${search}&sort=${sort}`
@@ -48,6 +52,10 @@ const AvailableCar = () => {
       return data;
     },
   });
+
+  useEffect(() => {
+    refetch();
+  }, [sort, search]);
 
   if (isLoading) {
     return <Loading></Loading>;
