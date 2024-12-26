@@ -7,7 +7,7 @@ const ListingsCard = ({ listing }) => {
   const { _id, availability, date, model, photo, rentalPrice, booking_count } =
     listing;
   return (
-    <div className="card bg-base-100 shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+    <div className="card bg-base-100 border shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
       <figure>
         <img src={photo} alt="car" className="w-full h-64 object-cover" />
       </figure>

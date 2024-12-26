@@ -34,7 +34,7 @@ const OurServices = () => {
         {rentals.map((rental, idx) => (
           <div
             key={idx}
-            className="card bg-base-100 shadow-xl rounded-lg overflow-hidden"
+            className="card bg-base-100 border rounded-lg overflow-hidden"
           >
             <img
               src={rental.image}

@@ -4,6 +4,7 @@ import WhyChooseUs from "./WhyChooseUs";
 import SpecialOffers from "./SpecialOffers";
 import Listings from "./Listings";
 import OurServices from "./OurServices";
+import OurSell from "./OurSell";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Listings></Listings>
       <SpecialOffers></SpecialOffers>
       <OurServices></OurServices>
+      <OurSell></OurSell>
     </div>
   );
 };
