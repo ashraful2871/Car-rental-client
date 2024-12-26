@@ -40,7 +40,7 @@ const AvailableCar = () => {
   // });
 
   const { data: cars, isLoading } = useQuery({
-    queryKey: ["cars"],
+    queryKey: ["cars", search, sort],
     queryFn: async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/cars?search=${search}&sort=${sort}`
