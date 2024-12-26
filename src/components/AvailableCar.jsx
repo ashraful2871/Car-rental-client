@@ -3,12 +3,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import AvailableCarCard from "./AvailableCarCard";
 import ListView from "./ListView";
+import Loading from "./Loading";
 
 const AvailableCar = () => {
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [view, setView] = useState("grid");
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAllCar = async () => {
@@ -18,12 +20,16 @@ const AvailableCar = () => {
       setCars(data);
     };
     fetchAllCar();
+    // setLoading(false);
   }, [search, sort]);
 
   const handleReset = () => {
     setSort("");
     setSearch("");
   };
+  // if (loading) {
+  //   <Loading></Loading>;
+  // }
 
   return (
     <div className="md:space-y-9">
