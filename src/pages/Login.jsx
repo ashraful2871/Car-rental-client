@@ -71,12 +71,14 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center mt-12">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+    <div className="flex justify-center">
+      <div className="card bg-base-100 w-full max-w-sm shrink-0 border-2">
         <form onSubmit={handleLogin} className="card-body">
           {" "}
           <div className="mt-5">
-            <h2 className="text-center text-4xl font-bold">Login Now</h2>
+            <h2 className="text-center text-4xl font-bold">
+              <span className="text-red-600">Login</span> Now
+            </h2>
           </div>
           <div className="form-control">
             <label className="label">
@@ -108,7 +110,9 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base">
+              Login
+            </button>
           </div>
         </form>
         <div className="divider -mt-1">or</div>
@@ -117,7 +121,6 @@ const Login = () => {
             onClick={handleGoogleLogin}
             className="flex items-center gap-2 text-lg btn border border-black btn-ghost"
           >
-            {" "}
             <span className="mt-1 text-2xl">
               <FcGoogle />
             </span>

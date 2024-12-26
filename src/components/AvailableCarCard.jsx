@@ -46,7 +46,7 @@ const AvailableCarCard = ({ car }) => {
             </button>
           ) : (
             <Link to={`/car_details/${_id}`}>
-              <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base disabled:bg-gray-500 disabled:cursor-not-allowed">
+              <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base">
                 Book Now
               </button>
             </Link>
