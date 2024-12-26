@@ -25,7 +25,7 @@ const OurServices = () => {
   return (
     <>
       <h2 className="text-3xl md:text-4xl font-bold mt-8 mb-4 text-center">
-        Looking for the right <span className="text-red-600">services? </span>
+        Looking for the others <span className="text-red-600">services? </span>
       </h2>
       <p className="text-center bg-base-100 text-base-content mb-10">
         We've got you covered with top-notch options tailored to your needs!
@@ -44,9 +44,11 @@ const OurServices = () => {
             <div className="p-4">
               <h2 className="text-xl font-bold">{rental.title}</h2>
               <p className="text-sm text-gray-600 mt-2">{rental.description}</p>
-              <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base mt-4">
-                <FaArrowRight /> View Details
-              </button>
+              <div className="flex justify-end">
+                <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300 text-base mt-4">
+                  <FaArrowRight /> View Details
+                </button>
+              </div>
             </div>
           </div>
         ))}
