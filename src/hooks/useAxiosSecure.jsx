@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
-  baseURL: "https://assignment-11-sable.vercel.app",
+  baseURL: `${import.meta.env.VITE_API_URL}`,
   withCredentials: true,
 });
 
