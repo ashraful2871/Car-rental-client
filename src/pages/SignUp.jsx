@@ -131,7 +131,7 @@ const SignUp = () => {
             </label>
             <input
               type="url"
-              placeholder="email"
+              placeholder="Photo Url"
               name="photo"
               className="input input-bordered"
               required

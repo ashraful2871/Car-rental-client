@@ -27,7 +27,7 @@ const Listings = () => {
         Explore the latest car listings, featuring top models
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {listings.map((listing, idx) => (
+        {listings?.map((listing, idx) => (
           <Fade cascade damping={0.2}>
             <ListingsCard key={idx} listing={listing}></ListingsCard>
           </Fade>
