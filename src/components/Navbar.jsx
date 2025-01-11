@@ -2,13 +2,16 @@ import { Link, NavLink } from "react-router-dom";
 import DarkLightMood from "./DarkLightMood";
 import useAuth from "../hooks/useAuth";
 
-const Navbar = () => {
+const Navbar = ({ footRef }) => {
   const { user, signOutUser } = useAuth();
   console.log(user);
   const handleSignOut = () => {
     signOutUser();
   };
-
+  const handleRef = () => {
+    if (footRef.current.scrollIntoView({ behavior: "smooth" })) {
+    }
+  };
   const menuLinks = (
     <>
       <li>
@@ -37,6 +40,24 @@ const Navbar = () => {
           to="/available_car"
         >
           Available Car
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) => (isActive ? "font-bold" : undefined)}
+          to="#contact"
+          onClick={handleRef}
+        >
+          Contact
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) => (isActive ? "font-bold" : undefined)}
+          to="#flow"
+          onClick={handleRef}
+        >
+          Flow Us
         </NavLink>
       </li>
       {user ? (
@@ -131,7 +152,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0 z-50">
       <div className="flex-1 ">
         <Link
           to="/"

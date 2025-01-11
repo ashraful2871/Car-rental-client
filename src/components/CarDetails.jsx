@@ -101,30 +101,9 @@ const CarDetails = () => {
 
     try {
       await mutateAsync(bookData);
-      // const { data } = await axios.post(
-      //   `${import.meta.env.VITE_API_URL}/add_book`,
-      //   bookData
-      // );
-      // toast.success("Car Book successful", {
-      //   style: {
-      //     borderRadius: "10px",
-      //     background: "#333",
-      //     color: "#fff",
-      //   },
-      // });
-      // navigate("/my_bookings");
-      // console.log(data);
     } catch (error) {
       console.log(error);
-      // toast.error(error.response.data, {
-      //   style: {
-      //     borderRadius: "10px",
-      //     background: "#333",
-      //     color: "#fff",
-      //   },
-      // });
     }
-    // setOpenModal(false);
   };
   const handleCancelModal = () => {
     setOpenModal(false);
@@ -134,7 +113,11 @@ const CarDetails = () => {
     <div>
       <div className="flex flex-col md:flex-row text-base-content items-start p-6 rounded-lg shadow-md">
         <div className="w-full md:w-1/2">
-          <img src={photo} alt="Car" className="rounded-lg w-full h-[400px]" />
+          <img
+            src={photo}
+            alt="Car"
+            className="rounded-lg w-full lg:h-[400px]"
+          />
         </div>
 
         <div className="w-full md:w-1/2 mt-6 md:mt-0 md:ml-6 space-y-5 ">
