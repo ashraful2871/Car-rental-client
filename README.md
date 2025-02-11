@@ -1,6 +1,3 @@
-Here's your **aesthetic** README file with a **dark mode & light mode screenshot section**, detailed installation steps, Firebase hosting, and authentication setup.
-
-````markdown
 # 🚗 Car Rent Platform
 
 A user-friendly car rental platform that allows users to **post their cars for rent** and **book vehicles for travel**. The system ensures secure booking, easy car management, and real-time updates.
@@ -54,19 +51,6 @@ _(Replace `assets/dark-mode.png` and `assets/light-mode.png` with actual screens
    git clone https://github.com/your-username/car-rent-platform.git
    cd car-rent-platform
    ```
-````
-
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Add environment variables (see below).
-4. Start the development server:
-   ```sh
-   npm run dev
-   ```
-
----
 
 ## 🔑 Environment Variables
 
