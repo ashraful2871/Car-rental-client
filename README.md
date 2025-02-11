@@ -142,7 +142,8 @@ npm install
 
 ---
 
-For Server Setup:
+### For Server Setup:
+
 [Car Rent Platform server](https://github.com/ashraful2871/Car-Rental-Server)
 
 ---
