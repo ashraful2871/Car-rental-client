@@ -40,19 +40,6 @@ _(Replace `assets/dark-mode.png` and `assets/light-mode.png` with actual screens
 
 ---
 
-## 📑 Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [Run Locally](#run-locally)
-- [Hosting with Firebase](#hosting-with-firebase)
-- [Authentication with Firebase](#authentication-with-firebase)
-- [Dependencies](#dependencies)
-- [License](#license)
-
----
-
 ## 🚀 Features
 
 ✅ **List Cars for Rent** - Users can add cars for rent, which automatically update on the UI.  
@@ -68,7 +55,7 @@ _(Replace `assets/dark-mode.png` and `assets/light-mode.png` with actual screens
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/car-rent-platform.git
+   git clone https://github.com/ashraful2871/Car-rental-client.git
    cd car-rent-platform
    ```
 
@@ -127,25 +114,6 @@ VITE_appId=ENTER_YOUR_APP_ID_HERE
 
 ---
 
-## 🔐 Authentication with Firebase
-
-1. Go to **Firebase Console** → Authentication.
-2. Enable the desired sign-in methods (e.g., Google, Email/Password).
-3. Use Firebase Authentication methods in your app:
-
-   ```js
-   import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
-   const auth = getAuth();
-   const provider = new GoogleAuthProvider();
-
-   signInWithPopup(auth, provider)
-     .then((result) => console.log("User signed in:", result.user))
-     .catch((error) => console.error(error));
-   ```
-
----
-
 ## 📦 Dependencies
 
 ### Main Dependencies
@@ -172,12 +140,6 @@ To install all dependencies:
 ```sh
 npm install
 ```
-
----
-
-## 📜 License
-
-This project is **open-source** and available under the **MIT License**.
 
 ---
 
