@@ -31,7 +31,7 @@ const ListingsCard = ({ listing }) => {
         </p>
         <div className="card-actions justify-end">
           <Link to={`/car_details/${_id}`}>
-            <button className="btn bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300   text-base">
+            <button className="btn btn-outline  hover:bg-blue-600 hover:text-white font-bold rounded-lg transition duration-300  border border-blue-600 text-base text-base-content">
               Book Now
             </button>
           </Link>
