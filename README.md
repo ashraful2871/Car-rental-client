@@ -36,8 +36,6 @@ A user-friendly car rental platform that allows users to **post their cars for r
 
 ![Add Car Page - Dark Mode](https://i.ibb.co.com/4w85hbNQ/Screenshot-2025-02-11-141632.png)
 
-_(Replace `assets/dark-mode.png` and `assets/light-mode.png` with actual screenshots)_
-
 ---
 
 ## 🚀 Features
@@ -70,6 +68,7 @@ VITE_projectId=ENTER_YOUR_PROJECT_ID_HERE
 VITE_storageBucket=ENTER_YOUR_STORAGE_BUCKET_HERE
 VITE_messagingSenderId=ENTER_YOUR_MESSAGING_SENDER_ID_HERE
 VITE_appId=ENTER_YOUR_APP_ID_HERE
+VITE_API_URL=HERE_IS_YOUR_BACKEND_API_URL
 ```
 
 ---
@@ -143,8 +142,7 @@ npm install
 
 ---
 
+For Server Setup:
+🌐 **Server Repository:** [Car Rent Platform server](https://github.com/ashraful2871/Car-Rental-Server)
+
 🚀 Happy Coding! 🚀
-
-```
-
-```
