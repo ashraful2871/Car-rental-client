@@ -10,6 +10,7 @@ A user-friendly car rental platform that allows users to **post their cars for r
 
 ### 🌙 Dark Mode
 
+. Home
 ![Dark Mode Screenshot](https://i.ibb.co.com/twBLbFFw/Screenshot-2025-02-11-141645.png)
 ![Dark Mode Screenshot](https://i.ibb.co.com/35Zn8WnT/Screenshot-2025-02-11-141655.png)
 ![Dark Mode Screenshot](https://i.ibb.co.com/b5xPytmd/Screenshot-2025-02-11-141711.png)
