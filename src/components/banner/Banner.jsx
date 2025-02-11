@@ -8,6 +8,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 import "./banner.css";
+import { delay } from "framer-motion";
 
 export default function Banner() {
   return (
@@ -15,6 +16,10 @@ export default function Banner() {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
