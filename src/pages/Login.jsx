@@ -60,7 +60,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Invalid Email & Password", {
+        toast.error(error, {
           style: {
             borderRadius: "10px",
             background: "#333",

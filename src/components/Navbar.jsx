@@ -44,7 +44,9 @@ const Navbar = ({ footRef }) => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "font-bold" : undefined)}
+          className={({ isActive }) =>
+            isActive ? "font-bold hover:text-red-500" : undefined
+          }
           to="#contact"
           onClick={handleRef}
         >
@@ -53,7 +55,9 @@ const Navbar = ({ footRef }) => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "font-bold" : undefined)}
+          className={({ isActive }) =>
+            isActive ? "font-bold hover:text-red-500" : undefined
+          }
           to="#flow"
           onClick={handleRef}
         >
