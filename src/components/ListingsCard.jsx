@@ -7,11 +7,11 @@ const ListingsCard = ({ listing }) => {
   const { _id, availability, date, model, photo, rentalPrice, booking_count } =
     listing;
   return (
-    <div className="card bg-base-100 border shadow-md hover:shadow-lg transition-transform transform hover:scale-105">
+    <div className="card bg-base-100 border shadow-md hover:shadow-lg transition-transform transform hover:scale-105 h-full">
       <figure>
         <img src={photo} alt="car" className="w-full h-64 object-cover" />
       </figure>
-      <div className="card-body">
+      <div className="card-body flex-col">
         <h3 className="card-title text-lg font-semibold">{model}</h3>
         <p className="text-gray-500">${rentalPrice}/day</p>
         <div className="flex items-center gap-2">
@@ -29,6 +29,7 @@ const ListingsCard = ({ listing }) => {
         <p className="text-sm text-gray-400">
           Added {formatDistanceToNow(new Date(date), { addSuffix: true })}
         </p>
+        <div className="flex-grow"></div>
         <div className="card-actions justify-end">
           <Link to={`/car_details/${_id}`}>
             <button className="btn btn-outline  hover:bg-blue-600 hover:text-white font-bold rounded-lg transition duration-300  border border-blue-600 text-base text-base-content">

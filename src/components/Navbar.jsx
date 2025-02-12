@@ -45,7 +45,9 @@ const Navbar = ({ footRef }) => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? "font-bold hover:text-red-500" : undefined
+            isActive
+              ? "font-bold hover:text-red-500 hidden md:block"
+              : undefined
           }
           to="#contact"
           onClick={handleRef}
