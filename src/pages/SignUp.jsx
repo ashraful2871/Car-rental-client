@@ -80,7 +80,6 @@ const SignUp = () => {
             color: "#fff",
           },
         });
-        navigate("/login");
       })
       .catch((error) => {
         console.log(error);
