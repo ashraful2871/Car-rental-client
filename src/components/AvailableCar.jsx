@@ -34,66 +34,97 @@ const AvailableCar = () => {
   }
 
   return (
-    <div className="md:space-y-9">
-      <div className="flex  justify-between flex-col md:flex-row p-4 md:p-0">
-        <div className="flex  justify-center items-center gap-5">
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="flex p-1 overflow-hidden border-2 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-              <input
-                className="px-0 md:px-6 py-2  placeholder-gray-500 outline-none focus:placeholder-transparent bg-base-100 text-base-content"
-                type="text"
-                name="search"
-                placeholder="Search Car Model, Location"
-                aria-label="Search Car Model, Location"
-                onChange={(e) => setSearch(e.target.value)}
-              />
+    <>
+      <div className="md:space-y-9">
+        <div className="flex  justify-between flex-col md:flex-row p-4 md:p-0">
+          <div className="flex  justify-center items-center gap-5">
+            <form onSubmit={(e) => e.preventDefault()}>
+              <div className="flex p-1 overflow-hidden border-2 rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+                <input
+                  className="px-0 md:px-6 py-2  placeholder-gray-500 outline-none focus:placeholder-transparent bg-base-100 text-base-content"
+                  type="text"
+                  name="search"
+                  placeholder="Search Car Model, Location"
+                  aria-label="Search Car Model, Location"
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+            </form>
+            <div>
+              <select
+                name="category"
+                id="category"
+                className="border p-4 rounded-md text-center bg-base-100 text-base-content font-semibold"
+                onChange={(e) => setSort(e.target.value)}
+              >
+                <option value="">Sort By Date</option>
+                <option value="date-dsc">Date (Newest First)</option>
+                <option value="date-asc">Date ( Oldest First)</option>
+              </select>
             </div>
-          </form>
-          <div>
-            <select
-              name="category"
-              id="category"
-              className="border p-4 rounded-md text-center bg-base-100 text-base-content font-semibold"
-              onChange={(e) => setSort(e.target.value)}
+          </div>
+          <div className="flex gap-5 justify-end mt-6 md:mt-0">
+            <button
+              onClick={() => setView("grid")}
+              className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300"
             >
-              <option value="">Sort By Date</option>
-              <option value="date-dsc">Date (Newest First)</option>
-              <option value="date-asc">Date ( Oldest First)</option>
-            </select>
+              Grid View
+            </button>
+
+            <button
+              onClick={() => setView("list")}
+              className="btn btn-primary  text-white font-bold text-base"
+            >
+              List View
+            </button>
           </div>
         </div>
-        <div className="flex gap-5 justify-end mt-6 md:mt-0">
-          <button
-            onClick={() => setView("grid")}
-            className="btn bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg transition duration-300"
-          >
-            Grid View
-          </button>
-
-          <button
-            onClick={() => setView("list")}
-            className="btn btn-primary  text-white font-bold text-base"
-          >
-            List View
-          </button>
+        <div
+          className={`${
+            view === "grid"
+              ? " grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              : "space-y-6"
+          }`}
+        >
+          {cars.map((car, idx) =>
+            view === "grid" ? (
+              <AvailableCarCard car={car} key={idx}></AvailableCarCard>
+            ) : (
+              <ListView car={car} key={idx}></ListView>
+            )
+          )}
         </div>
       </div>
-      <div
-        className={`${
-          view === "grid"
-            ? " grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            : "space-y-6"
-        }`}
-      >
-        {cars.map((car, idx) =>
-          view === "grid" ? (
-            <AvailableCarCard car={car} key={idx}></AvailableCarCard>
-          ) : (
-            <ListView car={car} key={idx}></ListView>
-          )
-        )}
+      <div className="flex justify-center mt-7">
+        <div className="join">
+          <input
+            className="join-item btn btn-square"
+            type="radio"
+            name="options"
+            aria-label="1"
+            checked="checked"
+          />
+          <input
+            className="join-item btn btn-square"
+            type="radio"
+            name="options"
+            aria-label="2"
+          />
+          <input
+            className="join-item btn btn-square"
+            type="radio"
+            name="options"
+            aria-label="3"
+          />
+          <input
+            className="join-item btn btn-square"
+            type="radio"
+            name="options"
+            aria-label="4"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
