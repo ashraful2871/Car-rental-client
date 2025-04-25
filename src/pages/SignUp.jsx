@@ -73,13 +73,14 @@ const SignUp = () => {
         console.log(result.user);
         updateUserProfile(name, photo);
         setUser({ ...result.user, photoURL: photo, displayName: name });
-        toast.success("Signed Up Successfully Login Now", {
+        toast.success(" Successfully Signed Up", {
           style: {
             borderRadius: "10px",
             background: "#333",
             color: "#fff",
           },
         });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
