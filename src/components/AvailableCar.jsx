@@ -9,14 +9,14 @@ const AvailableCar = () => {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [view, setView] = useState("grid");
-  const [page, setPage] = useState(1); // Track current page
+  const [page, setPage] = useState(1);
 
   const {
-    data: { cars = [], totalPages = 1 } = {}, // Default values
+    data: { cars = [], totalPages = 1 } = {},
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["cars", search, sort, page], // Include page in queryKey
+    queryKey: ["cars", search, sort, page],
     queryFn: async () => {
       const { data } = await axios.get(
         `${
