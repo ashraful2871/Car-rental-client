@@ -29,13 +29,9 @@ const AvailableCar = () => {
 
   useEffect(() => {
     refetch();
-  }, [sort, search, page]); // Add page to dependencies
+  }, [sort, search, page]);
 
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
-
-  // Generate pagination buttons dynamically
+  //pagination buttons function
   const renderPagination = () => {
     const buttons = [];
     for (let i = 1; i <= totalPages; i++) {
