@@ -26,15 +26,15 @@ A user-friendly car rental platform that allows users to **post their cars for r
 
 #### 🏠 Home Page
 
-![Home Page - Dark Mode](https://i.ibb.co.com/hk4R6kK/Screenshot-2025-02-11-141549.png)
+![Home Page - Light Mode](https://i.ibb.co.com/FkTLSchz/Screenshot-2025-04-25-150156.png)
 
 #### 🚗 Available Cars Page
 
-![Available Cars Page - Dark Mode](https://i.ibb.co.com/1GnfFfLJ/Screenshot-2025-02-11-141610.png)
+![Available Cars Page - Light Mode](https://i.ibb.co.com/1GnfFfLJ/Screenshot-2025-02-11-141610.png)
 
 #### ➕ Add Car Page
 
-![Add Car Page - Dark Mode](https://i.ibb.co.com/4w85hbNQ/Screenshot-2025-02-11-141632.png)
+![Add Car Page - Light Mode](https://i.ibb.co.com/4w85hbNQ/Screenshot-2025-02-11-141632.png)
 
 ---
 
