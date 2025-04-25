@@ -115,6 +115,7 @@ const AvailableCar = () => {
           </div>
         )}
       </div>
+      {/* pagination button */}
       <div className="flex justify-center mt-7">
         <div className="join">{renderPagination()}</div>
       </div>
